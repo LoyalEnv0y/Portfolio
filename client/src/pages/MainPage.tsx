@@ -1,10 +1,13 @@
-import Test from './test';
+import MainPageHeader from '../components/mainPage/Header';
+import Slider from '../components/mainPage/Slider';
 
-function App() {
+const MainPage = () => {
 	return (
-		<main>
-			<Test />
-			<div className="w-full bg-[#06141D] text-white">
+		<div>
+			<MainPageHeader />
+			<main className="w-full bg-[#383838] text-white">
+				<Slider />
+
 				<p>
 					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas
 					atque saepe eveniet ipsum, porro corrupti dicta odio amet
@@ -755,10 +758,9 @@ function App() {
 					dolorem veniam quas sit quam! Et magni beatae in nisi sit quis
 					necessitatibus, iure corrupti laudantium ex maxime quod nulla.
 				</p>
-			</div>
-		</main>
+			</main>
+		</div>
 	);
-}
+};
 
-export default App;
-
+export default MainPage;

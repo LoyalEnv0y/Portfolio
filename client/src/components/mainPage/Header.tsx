@@ -1,13 +1,13 @@
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useRef } from 'react';
 
-const Test = () => {
+const MainPageHeader = () => {
 	const ref = useRef(null);
 
 	// useScroll hook returns properties for the given element and properties.
 	// In this case we take the horizontal scroll progress from it. This returns an object.
 	// In this object we can access the exact moment where the animation is. It returns a value
-	// between 0 and 1. 
+	// between 0 and 1.
 	const { scrollYProgress } = useScroll({
 		target: ref,
 		// Below we specify when we want to trigger and end this animation.
@@ -19,29 +19,36 @@ const Test = () => {
 	// Use transform helps us use dynamic properties. Here we specify that we want to track
 	// scroll progress of the referenced div and when it's value is 0%. the property should be set
 	// to 0 and when it is 1 the property should be set to 100%. the property increases gradually
-	// between the borders.  
-	const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-	const textY = useTransform(scrollYProgress, [0, 1], ['0%', '400%']);
+	// between the borders.
+	const fullY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+	const middleY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+	const titleY = useTransform(scrollYProgress, [0, 1], ['-40%', '300%']);
 
 	return (
-		<div
+		<header
 			ref={ref}
 			className="flex-grid relative flex h-screen w-full  items-center justify-center  overflow-hidden"
 		>
-			<motion.h1
-				className="relative z-10 text-7xl font-bold text-white md:text-9xl"
-				style={{ y: textY }}
+			<motion.div
+				className="relative z-20 flex flex-col items-center gap-y-10 text-white"
+				style={{ y: titleY }}
 			>
-				PARALLAX
-			</motion.h1>
+				<h1 className="text-7xl font-bold md:text-9xl">Çetin Tekin</h1>
+				<h2 className="text-2xl md:text-4xl">Web Geliştirici</h2>
+			</motion.div>
 
 			<motion.div
-				className="absolute inset-0 z-0 bg-[url('/images/Mountain-Full.png')] bg-cover bg-bottom"
-				style={{ y: backgroundY }}
+				className="absolute inset-0 z-10 bg-[url('/images/Retro-Middle.png')] bg-cover bg-bottom"
+				style={{ y: middleY }}
 			/>
-			<div className="absolute inset-0 z-20 bg-[url('/images/Mountain-Bottom.png')] bg-cover bg-bottom" />
-		</div>
+
+			<motion.div
+				className="absolute inset-0 z-0 bg-[url('/images/Retro-Full.png')] bg-cover bg-bottom"
+				style={{ y: fullY }}
+			/>
+			<div className="absolute inset-0 z-30 bg-[url('/images/Retro-Bottom.png')] bg-cover bg-bottom" />
+		</header>
 	);
 };
 
-export default Test;
+export default MainPageHeader;
