@@ -15,6 +15,14 @@ export default {
 
       animation: {
         slide: 'slide 40s linear infinite'
+      },
+
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        amatic: ['"Amatic SC"', 'cursive'],
+        orbitron: ['Orbitron', 'sans-serif'],
+        vibes: ['"Great Vibes"', 'cursive'],
+        sacramento: ['Sacramento', 'cursive'],
       }
     },
   },

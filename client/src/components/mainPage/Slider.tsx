@@ -1,123 +1,108 @@
 const Slider = () => {
-	const sliderTextHoverClasses = 'hover:text-fuchsia-500';
+	const sliderTextClasses = 'w-20';
+	const sliderGroupClasses = 'slide-item flex gap-x-5 w-1/2 animate-slide justify-around overflow-hidden';
 
 	return (
-		<section className="slide-track w-full overflow-hidden bg-fuchsia-200 py-7 text-5xl font-bold uppercase text-fuchsia-300">
-			<div className="flex w-[200%] ">
-				<div className="slide-item flex w-1/2 animate-slide justify-around">
+		<section className="slide-track w-full overflow-hidden bg-[#14213d] py-7">
+			<div className="flex w-[200%] gap-x-5">
+				<div className={sliderGroupClasses}>
 					<a
 						target="_blank"
 						href="https://github.com/LoyalEnv0y"
-						className={sliderTextHoverClasses}
 					>
-						GitHub
+						<img src="/assets/Github-White.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.linkedin.com/in/%C3%A7etin-tekin-loyalenv0y/"
-						className={sliderTextHoverClasses}
 					>
-						Linkedin
+						<img src="/assets/Linkedin.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.instagram.com/cetin.tekinn/"
-						className={sliderTextHoverClasses}
 					>
-						Instagram
+						<img src="/assets/Instagram.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.reddit.com/user/LoyalEnvoy"
-						className={sliderTextHoverClasses}
 					>
-						Reddit
+						<img src="/assets/Reddit.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://github.com/LoyalEnv0y"
-						className={sliderTextHoverClasses}
 					>
-						GitHub
+						<img src="/assets/Github-White.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.linkedin.com/in/%C3%A7etin-tekin-loyalenv0y/"
-						className={sliderTextHoverClasses}
 					>
-						Linkedin
+						<img src="/assets/Linkedin.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.instagram.com/cetin.tekinn/"
-						className={sliderTextHoverClasses}
 					>
-						Instagram
+						<img src="/assets/Instagram.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.reddit.com/user/LoyalEnvoy"
-						className={sliderTextHoverClasses}
 					>
-						Reddit
+						<img src="/assets/Reddit.svg" className={sliderTextClasses} />
 					</a>
 				</div>
-				<div className="slide-item flex w-1/2 animate-slide justify-around ">
-					<a
+				<div className={sliderGroupClasses}>
+				<a
 						target="_blank"
 						href="https://github.com/LoyalEnv0y"
-						className={sliderTextHoverClasses}
 					>
-						GitHub
+						<img src="/assets/Github-White.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.linkedin.com/in/%C3%A7etin-tekin-loyalenv0y/"
-						className={sliderTextHoverClasses}
 					>
-						Linkedin
+						<img src="/assets/Linkedin.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.instagram.com/cetin.tekinn/"
-						className={sliderTextHoverClasses}
 					>
-						Instagram
+						<img src="/assets/Instagram.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.reddit.com/user/LoyalEnvoy"
-						className={sliderTextHoverClasses}
 					>
-						Reddit
+						<img src="/assets/Reddit.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://github.com/LoyalEnv0y"
-						className={sliderTextHoverClasses}
 					>
-						GitHub
+						<img src="/assets/Github-White.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.linkedin.com/in/%C3%A7etin-tekin-loyalenv0y/"
-						className={sliderTextHoverClasses}
 					>
-						Linkedin
+						<img src="/assets/Linkedin.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.instagram.com/cetin.tekinn/"
-						className={sliderTextHoverClasses}
 					>
-						Instagram
+						<img src="/assets/Instagram.svg" className={sliderTextClasses} />
 					</a>
 					<a
 						target="_blank"
 						href="https://www.reddit.com/user/LoyalEnvoy"
-						className={sliderTextHoverClasses}
 					>
-						Reddit
+						<img src="/assets/Reddit.svg" className={sliderTextClasses} />
 					</a>
 				</div>
 			</div>

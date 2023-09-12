@@ -27,7 +27,7 @@ const MainPageHeader = () => {
 	return (
 		<header
 			ref={ref}
-			className="flex-grid relative flex h-screen w-full  items-center justify-center  overflow-hidden"
+			className="flex-grid relative flex h-screen w-full items-center justify-center overflow-hidden font-orbitron"
 		>
 			<motion.div
 				className="relative z-20 flex flex-col items-center gap-y-10 text-white"
