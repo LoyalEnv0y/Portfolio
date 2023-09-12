@@ -5,3 +5,7 @@
 .slide-track:hover .slide-item {
 	animation-play-state: paused;
 }
+
+::-webkit-scrollbar {
+	display: none;
+}

@@ -10,11 +10,17 @@ export default {
         slide: {
           '0%': { transform: 'translate(0%)' },
           '100%': { transform: 'translate(-100%)' }
+        },
+
+        roll: {
+          '0%': { transform: 'translate(0%)'},
+          '100%': { transform: 'translate(-100%)'}
         }
       },
 
       animation: {
-        slide: 'slide 40s linear infinite'
+        slide: 'slide 40s linear infinite',
+        roll: 'roll 4s linear infinite'
       },
 
       fontFamily: {

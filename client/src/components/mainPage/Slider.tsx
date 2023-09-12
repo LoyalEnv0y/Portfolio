@@ -1,10 +1,10 @@
 const Slider = () => {
 	const sliderTextClasses = 'w-20';
-	const sliderGroupClasses = 'slide-item flex gap-x-5 w-1/2 animate-slide justify-around overflow-hidden';
+	const sliderGroupClasses = 'slide-item flex gap-x-5 sm:gap-x-0 w-1/2 animate-slide justify-around';
 
 	return (
 		<section className="slide-track w-full overflow-hidden bg-[#14213d] py-7">
-			<div className="flex w-[200%] gap-x-5">
+			<div className="flex w-[200%] gap-x-5 sm:gap-x-0">
 				<div className={sliderGroupClasses}>
 					<a
 						target="_blank"
