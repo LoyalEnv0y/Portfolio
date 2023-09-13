@@ -4,14 +4,9 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import { twMerge } from 'tailwind-merge';
 import { v4 as uuid } from 'uuid';
+import { Link } from '../types';
 
-type link = {
-	id: string;
-	content: string;
-	to: string;
-};
-
-const links: link[] = [
+const links: Link[] = [
 	{ id: uuid(), content: 'Ana Sayfa', to: '/' },
 	{ id: uuid(), content: 'Teknolojiler', to: '/' },
 	{ id: uuid(), content: 'Sertifikalar', to: '/' },
@@ -31,17 +26,8 @@ const NavBar = () => {
 		)
 	);
 
-	const navToggleButtonClasses = twMerge(
-		classNames(
-			'fixed right-10 top-10 flex h-12 w-12 bg-white cursor-pointer items-center justify-center rounded-full hover:bg-zinc-300',
-			{
-				'bg-zinc-200': isMenuOpen,
-			}
-		)
-	);
-
 	const navContent = isMenuOpen && (
-		<div className="flex h-full w-full items-center justify-center text-white">
+		<div className="flex h-full w-full items-center justify-center">
 			<nav className="flex h-2/3 w-1/3 flex-col gap-y-4">
 				{/* Animations are on the index.css page */}
 				{links.map((link) => (
@@ -66,7 +52,7 @@ const NavBar = () => {
 		<section className={navContainerClasses}>
 			<div
 				onClick={() => setIsMenuOpen(!isMenuOpen)}
-				className={navToggleButtonClasses}
+				className="fixed right-10 top-10 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white text-black hover:bg-zinc-300"
 			>
 				{isMenuOpen ? <CloseIcon /> : <MenuIcon />}
 			</div>

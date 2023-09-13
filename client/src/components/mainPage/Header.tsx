@@ -32,7 +32,7 @@ const MainPageHeader = () => {
 				className="relative flex h-screen w-full items-center justify-center overflow-hidden font-orbitron"
 			>
 				<motion.div
-					className="relative z-20 flex flex-col items-center gap-y-10 text-white"
+					className="relative z-20 flex flex-col items-center gap-y-10"
 					style={{ y: titleY }}
 				>
 					<h1 className="text-7xl font-bold md:text-9xl">Çetin Tekin</h1>
