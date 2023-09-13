@@ -3,7 +3,7 @@ import AboutNav from '../components/about/AboutNav';
 
 const AboutLayout = () => {
 	return (
-		<div className="flex h-screen flex-col items-center">
+		<div className="flex min-h-screen flex-col items-center">
 			<section className="flex justify-center py-5">
 				<div className="relative h-52 w-52">
 					<img

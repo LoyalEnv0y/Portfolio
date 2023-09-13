@@ -7,10 +7,13 @@ import MainPageHeader from '../components/mainPage/Header';
 */
 const MainLayout = () => {
 	return (
-		<div className="bg-[#111928] font-poppins text-white">
+		<div className="bg-[#111928] font-poppins text-white overflow-x-hidden">
 			<MainPageHeader />
 			<NavBar />
-			<Outlet />
+
+			<section className='px-10'>
+				<Outlet />
+			</section>
 		</div>
 	);
 };
