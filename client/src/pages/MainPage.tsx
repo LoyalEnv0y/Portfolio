@@ -5,17 +5,31 @@ const MainPage = () => {
 	return (
 		<div className="font-poppins">
 			<MainPageHeader />
-			<main className="w-full text-white">
-				<Slider />
+			<Slider />
 
-				<section className="h-screen w-full bg-[#111928]">
-					<div className='w-[52rem] flex justify-center border-yellow-400 border'>
-						<div className='flex w-52 overflow-hidden border'>
-							<img src="/images/PP2.jpg" alt="" className='w-52 animate-roll rounded-full'/>
-							<img src="/images/PP1.jpg" alt="" className='w-52 animate-roll rounded-full -rotate-[30deg]'/>
-							<img src="/images/PP3.jpg" alt="" className='w-52 animate-roll rounded-full'/>
-							<img src="/images/PP4.jpg" alt="" className='w-52 animate-roll rounded-full'/>
-						</div>
+			<main className="w-full text-white p-10 bg-[#111928]">
+				<section className="h-screen w-full">
+					<div className="relative flex w-52 rounded-full">
+						<img
+							src="/images/PP2.jpg"
+							alt=""
+							className="absolute w-52 animate-fade rounded-full"
+						/>
+						<img
+							src="/images/PP1.jpg"
+							alt=""
+							className="animate-fade2 absolute w-52 -rotate-[30deg] rounded-full"
+						/>
+						<img
+							src="/images/PP3.jpg"
+							alt=""
+							className="animate-fade3 absolute w-52 rounded-full"
+						/>
+						<img
+							src="/images/PP4.jpg"
+							alt=""
+							className="animate-fade4 absolute w-52 rounded-full"
+						/>
 					</div>
 				</section>
 			</main>
