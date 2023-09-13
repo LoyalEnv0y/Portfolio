@@ -14,42 +14,46 @@ export default {
 
         fade: {
           '0%': { opacity: '0' },
-          '25%': { opacity: '1' },
-          '26%': { opacity: '0' },
-          '100%': {opacity: '0'}
+          '10%': { opacity: '1' },
+          '25%': { opacity: '0' },
+          '100%': { opacity: '0' }
         },
 
         fade2: {
           '0%': { opacity: '0' },
-          '26%': { opacity: '0' },
-          '50%': { opacity: '1' },
-          '51%': { opacity: '0' },
-          '100%': {opacity: '0'}
-
+          '20%': { opacity: '0' },
+          '35%': { opacity: '1' },
+          '50%': { opacity: '0' },
+          '100%': { opacity: '0' }
         },
 
         fade3: {
           '0%': { opacity: '0' },
-          '51%': { opacity: '0' },
-          '75%': { opacity: '1' },
-          '76%': { opacity: '0' },
-          '100%': {opacity: '0'}
+          '45%': { opacity: '0' },
+          '60%': { opacity: '1' },
+          '75%': { opacity: '0' },
+          '100%': { opacity: '0' }
         },
 
         fade4: {
           '0%': { opacity: '0' },
-          '76%': { opacity: '0' },
-          '100%': { opacity: '1' }
+          '70%': { opacity: '0' },
+          '85%': { opacity: '1' },
+          '100%': { opacity: '0' }
         },
       },
 
       animation: {
         slide: 'slide 40s linear infinite',
         roll: 'roll 30s linear infinite',
-        fade: 'fade 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
-        fade2: 'fade2 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
-        fade3: 'fade3 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
-        fade4: 'fade4 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
+        // fade: 'fade 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
+        // fade2: 'fade2 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
+        // fade3: 'fade3 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
+        // fade4: 'fade4 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
+        fade: 'fade 15s linear infinite',
+        fade2: 'fade2 15s linear infinite',
+        fade3: 'fade3 15s linear infinite',
+        fade4: 'fade4 15s linear infinite',
       },
 
       fontFamily: {

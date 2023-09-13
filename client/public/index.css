@@ -9,3 +9,15 @@
 ::-webkit-scrollbar {
 	display: none;
 }
+
+/* .link-bullet, .link-link {
+	transition: all 75ms ease-in-out;
+}
+
+.link-box:hover .link-bullet {
+	transform: rotate(135deg) scale(1.5);
+}
+
+.link-box:hover .link-link {
+	transform: translateX(2.20rem);
+} */
