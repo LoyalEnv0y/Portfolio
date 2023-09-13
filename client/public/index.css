@@ -10,14 +10,16 @@
 	display: none;
 }
 
-/* .link-bullet, .link-link {
-	transition: all 75ms ease-in-out;
+.test {
+	transition: 1s;
 }
 
-.link-box:hover .link-bullet {
-	transform: rotate(135deg) scale(1.5);
-}
+/* @keyframes come-in {
+	from {
+		transform: translateX(1000px);
+	}
 
-.link-box:hover .link-link {
-	transform: translateX(2.20rem);
-} */
+	to {
+		transform: translate(0px);
+	}
+}  */
