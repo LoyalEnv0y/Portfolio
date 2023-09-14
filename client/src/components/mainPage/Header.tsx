@@ -26,7 +26,7 @@ const MainPageHeader = () => {
 	const mountainsFarY = useTransform(scrollYProgress, [0, 1], ['0%', '70%']);
 	const mountainsMiddleY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 	const mountainsCloseY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-	const titleY = useTransform(scrollYProgress, [0, 1], ['-40%', '300%']);
+	const titleY = useTransform(scrollYProgress, [0, 1], ['-40%', '450%']);
 
 	return (
 		<header>
