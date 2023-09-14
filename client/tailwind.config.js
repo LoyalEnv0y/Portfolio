@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'large': '1921px'
+      },
+
       keyframes: {
         slide: {
           '0%': { transform: 'translate(0%)' },

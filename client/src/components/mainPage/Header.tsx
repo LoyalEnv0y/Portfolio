@@ -21,27 +21,26 @@ const MainPageHeader = () => {
 	// scroll progress of the referenced div and when it's value is 0%. the property should be set
 	// to 0 and when it is 1 the property should be set to 100%. the property increases gradually
 	// between the borders.
-	const skyY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+	const skyY = useTransform(scrollYProgress, [0, 1], ['0%', '110%']);
 	const fullY = useTransform(scrollYProgress, [0, 1], ['0%', '70%']);
 	const mountainsFarY = useTransform(scrollYProgress, [0, 1], ['0%', '70%']);
 	const mountainsMiddleY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
 	const mountainsCloseY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-	// const bg5 = useTransform(scrollYProgress, [0, 1], ['0%', '10%']);
-	// const titleY = useTransform(scrollYProgress, [0, 1], ['-40%', '300%']);
+	const titleY = useTransform(scrollYProgress, [0, 1], ['-40%', '300%']);
 
 	return (
 		<header>
 			<div
 				ref={ref}
-				className="relative flex h-[1250px] overflow-hidden w-full items-center justify-center font-orbitron"
+				className="relative hidden h-[1250px] w-full items-center justify-center overflow-hidden font-orbitron text-[#00100D] sm:flex"
 			>
-				{/* <motion.div
-					className="relative z-20 flex flex-col items-center gap-y-10"
+				<motion.div
+					className="sm:mb-30 relative z-40 mb-96 flex flex-col items-center gap-y-10"
 					style={{ y: titleY }}
 				>
-					<h1 className="text-7xl font-bold md:text-9xl">Çetin Tekin</h1>
+					<h1 className="text-5xl font-bold md:text-9xl">Çetin Tekin</h1>
 					<h2 className="text-2xl md:text-4xl">Web Geliştirici</h2>
-				</motion.div> */}
+				</motion.div>
 
 				<motion.div
 					className="absolute inset-0 z-0 bg-[url('/images/header/Full.png')]"
@@ -64,13 +63,19 @@ const MainPageHeader = () => {
 				/>
 
 				<motion.div
-					className="absolute inset-0 z-40 bg-[url('/images/header/Mountains-Close.png')] bg-no-repeat bg-bottom"
+					className="absolute inset-0 z-40 bg-[url('/images/header/Mountains-Close.png')] bg-bottom bg-no-repeat"
 					style={{ y: mountainsCloseY }}
 				/>
 
 				<div className="absolute inset-0 z-50 bg-[url('/images/header/Trees.png')] bg-bottom bg-no-repeat" />
 			</div>
 
+			<div className="flex h-[1090px] w-full items-center justify-center overflow-hidden bg-[url('/images/header/Mobile.png')] bg-top bg-no-repeat font-orbitron text-[#00100D] sm:hidden">
+				<div className="sm:mb-30 relative z-40 mb-40 flex flex-col items-center gap-y-10">
+					<h1 className="text-5xl font-bold md:text-9xl">Çetin Tekin</h1>
+					<h2 className="text-2xl md:text-4xl">Web Geliştirici</h2>
+				</div>
+			</div>
 			{/* <Slider /> */}
 		</header>
 	);
