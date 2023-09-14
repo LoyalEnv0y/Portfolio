@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const Who = () => {
 	return (
@@ -25,8 +25,8 @@ const Who = () => {
 				</div> */}
 			</div>
 
-			<div className="relative h-[600px] w-[40%] min-w-[500px] rounded-3xl bg-[#132b57]">
-				{/* <motion.div
+			{/*<div className="relative h-[600px] w-[40%] min-w-[500px] rounded-3xl bg-[#132b57]">
+				 <motion.div
 					className="test absolute w-5/12 rounded-2xl bg-black p-4 duration-300"
 					initial={{ opacity: 0, translateX: 0, translateY: 0 }}
 					whileInView={{
@@ -64,8 +64,8 @@ const Who = () => {
 					transition={{ duration: 0.25, ease: [0.5, 0, 0.5, 0] }}
 				>
 					<img src="/images/Programming.png" />
-				</motion.div> */}
-			</div>
+				</motion.div> 
+			</div>*/}
 		</div>
 	);
 };
