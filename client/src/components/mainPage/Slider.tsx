@@ -4,7 +4,7 @@ const Slider = () => {
 		'slide-item flex gap-x-5 sm:gap-x-0 w-1/2 animate-slide justify-around';
 
 	return (
-		<section className="slide-track w-full overflow-hidden bg-[#14213d] py-2">
+		<section className="slide-track w-full overflow-hidden bg-[#0f1815] py-2">
 			<div className="flex w-[200%] gap-x-5 sm:gap-x-0">
 				<div className={sliderGroupClasses}>
 					<a target="_blank" href="https://github.com/LoyalEnv0y">

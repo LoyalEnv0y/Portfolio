@@ -76,7 +76,7 @@ const MainPageHeader = () => {
 					<h2 className="text-2xl md:text-4xl">Web Geliştirici</h2>
 				</div>
 			</div>
-			{/* <Slider /> */}
+			<Slider />
 		</header>
 	);
 };

@@ -4,9 +4,7 @@ import ReactDOM from 'react-dom/client';
 import '../public/index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout.tsx';
-import AboutLayout from './layouts/AboutLayout.tsx';
-import Who from './pages/about/Who.tsx';
-import Start from './pages/about/Start.tsx';
+import About from './pages/About.tsx';
 
 const router = createBrowserRouter([
 	{
@@ -15,11 +13,7 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: '/',
-				element: <AboutLayout />,
-				children: [
-					{ index: true, element: <Who /> },
-					{ path: 'start', element: <Start /> },
-				],
+				element: <About />,
 			},
 			{
 				path: 'technologies',

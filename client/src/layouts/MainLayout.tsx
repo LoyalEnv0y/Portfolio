@@ -7,7 +7,7 @@ import MainPageHeader from '../components/mainPage/Header';
 */
 const MainLayout = () => {
 	return (
-		<div className="bg-[#111928] font-poppins text-white overflow-x-hidden large:w-[1920px]">
+		<div className="bg-[#00110B] font-poppins text-white overflow-x-hidden large:w-[1920px]">
 			<MainPageHeader />
 			<NavBar />
 
