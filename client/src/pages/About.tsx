@@ -1,8 +1,11 @@
 import AboutCell from '../components/AboutCell';
 import { v4 as uuid } from 'uuid';
 import { AboutCellContent } from '../types';
+import { useMotionValueEvent, useScroll } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const AboutCellContents: AboutCellContent[] = [
+const aboutCellContents: AboutCellContent[] = [
 	{
 		id: uuid(),
 		index: 0,
@@ -86,6 +89,29 @@ const AboutCellContents: AboutCellContent[] = [
 ];
 
 const About = () => {
+	const ref = useRef(null);
+	const [test, setTest] = useState(0);
+
+	const { scrollY } = useScroll({
+		container: ref,
+	});
+
+	useMotionValueEvent(scrollY, 'change', (latest) => {
+		setTest(latest);
+	});
+
+	const getNavigationClasses = (idx: number) => {
+		console.log('Test => ', test);
+		// console.log('Index => ', idx);
+		// console.log('Test / (480) => ', test / 480);
+		if (test === 480) console.log('HIT! 480 Test => ', test);
+		if (test === 960) console.log('HIT! 960 Test => ', test);
+		if (test === 1440) console.log('HIT! 1440 Test => ', test);
+		if (test === 1920) console.log('HIT! 1920 Test => ', test);
+		if (test === 2400) console.log('HIT! 2400 Test => ', test);
+	};
+	getNavigationClasses(0);
+
 	return (
 		<div className="my-10 flex min-h-screen flex-col items-center">
 			<section className="flex justify-center py-5">
@@ -114,32 +140,27 @@ const About = () => {
 			</section>
 
 			<div className="flex h-[600px] w-7/12 rounded-3xl bg-[#282828]">
-				<section className="h-full w-11/12">
-					<AboutCell cell={AboutCellContents[1]} />
+				<section className="h-full w-11/12 overflow-y-scroll" ref={ref}>
+					{/* <AboutCell cell={AboutCellContents[1]} /> */}
 
-					{/* {AboutCellContents.map((cell) => (
+					{aboutCellContents.map((cell) => (
 						<AboutCell key={cell.id} cell={cell} />
-					))} */}
+					))}
 				</section>
 
 				<section className="flex w-1/12 flex-col items-center gap-y-1 self-center">
-					<div className="h-12 w-12 rounded-full bg-blue-300" />
-
-					<div className="h-12 rounded-full border-2 border-dashed"></div>
-
-					<div className="h-12 w-12 rounded-full bg-white" />
-
-					<div className="h-12 w-1 rounded-full bg-white"></div>
-
-					<div className="h-12 w-12 rounded-full bg-white" />
-
-					<div className="h-12 w-1 rounded-full bg-white"></div>
-
-					<div className="h-12 w-12 rounded-full bg-white" />
-
-					<div className="h-12 w-1 rounded-full bg-white"></div>
-
-					<div className="h-12 w-12 rounded-full bg-white" />
+					{aboutCellContents.map((cell) => (
+						<>
+							{/* {getNavigationClasses(cell.index)} */}
+							<a
+								className="h-12 w-12 rounded-full bg-blue-300"
+								href={`/#${cell.index}`}
+							/>
+							{cell.index !== aboutCellContents.length - 1 && (
+								<div className="h-12 rounded-full border-2 border-dashed"></div>
+							)}
+						</>
+					))}
 				</section>
 			</div>
 		</div>

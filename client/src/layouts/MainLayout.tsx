@@ -11,9 +11,9 @@ const MainLayout = () => {
 			<MainPageHeader />
 			<NavBar />
 
-			<section className='px-10'>
+			<main className='px-10'>
 				<Outlet />
-			</section>
+			</main>
 		</div>
 	);
 };

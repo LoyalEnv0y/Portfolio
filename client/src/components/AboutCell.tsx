@@ -10,7 +10,7 @@ type AboutCellProps = {
 const AboutCell: FC<AboutCellProps> = ({ cell }) => {
 	const [activeImgIdx, setActiveImgIdx] = useState(0);
 
-	const bodyClasses = twMerge(
+	const contentBodyClasses = twMerge(
 		classNames('flex h-5/6 flex-col gap-y-10', {
 			'justify-start mt-10': cell.body.length === 1,
 		})
@@ -27,7 +27,7 @@ const AboutCell: FC<AboutCellProps> = ({ cell }) => {
 	const getTextIconClasses = (idx: number): string => {
 		return twMerge(
 			classNames(
-				'h-2 w-2 bg-[#00A3FF] transition group-hover:rotate-[135deg] group-hover:scale-150',
+				'h-2 w-2 bg-[#00A3FF] transition group-hover:rotate-[135deg] group-hover:scale-150 rounded-sm',
 				{ 'rotate-[135deg] scale-150': activeImgIdx === idx }
 			)
 		);
@@ -44,10 +44,11 @@ const AboutCell: FC<AboutCellProps> = ({ cell }) => {
 
 	return (
 		<div className="flex h-full w-full">
+			<p id={cell.index}></p>
 			<section className="flex h-full w-1/2 flex-col items-center p-3">
 				<h2 className="mt-10 h-1/6 text-4xl font-bold">{cell.title}</h2>
 
-				<div className={bodyClasses}>
+				<div className={contentBodyClasses}>
 					{cell.body.map((row, i) => (
 						<div
 							className={getTextBoxClasses(i)}
@@ -63,7 +64,7 @@ const AboutCell: FC<AboutCellProps> = ({ cell }) => {
 			<section className="flex h-full w-1/2 items-center justify-center">
 				{cell.imageLinks && (
 					<div
-						className="h-96 w-96 bg-cover bg-center bg-no-repeat"
+						className="h-96 w-96 bg-cover bg-center bg-no-repeat rounded-3xl"
 						style={{
 							backgroundImage: `url(/images/${cell.imageLinks[activeImgIdx]})`,
 						}}
@@ -75,5 +76,3 @@ const AboutCell: FC<AboutCellProps> = ({ cell }) => {
 };
 
 export default AboutCell;
-
-// bg-[url('/images/header/Trees.png')]

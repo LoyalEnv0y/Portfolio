@@ -16,6 +16,7 @@
 
 #root {
 	background-color: #111928;
+	scroll-behavior: smooth;
 }
 
 @media (min-width: 1921px) {
