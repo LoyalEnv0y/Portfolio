@@ -24,9 +24,9 @@ const AboutCellContents: AboutCellContent[] = [
 			'Covid-19 sırasında eve kapandığım için yeni bir hobi edinmek adına programlama öğrenmeye başladım.',
 		],
 		imageLinks: [
-			'Porto-Ticket.jpg',
-			'HS-Graduation2.jpeg',
-			'Covid-Blue-On-Glasses.jpg',
+			'HS-Graduation.png',
+			'Porto-Ticket.png',
+			'Covid-Blur-On-Glasses.jpg',
 		],
 	},
 
