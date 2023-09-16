@@ -158,9 +158,22 @@ const About = () => {
 		<main className="relative flex h-screen w-full flex-col items-center justify-between py-10">
 			<PictureBox />
 
-			<button onClick={goUp}>
-				<KeyboardArrowUpIcon fontSize="large" />
-			</button>
+			<div className="h-10">
+				<AnimatePresence>
+					{page !== 0 && (
+						<motion.button
+							onClick={goUp}
+							whileHover={{ scale: 1.5 }}
+							whileTap={{ scale: 1.2, y: -10 }}
+							exit={{ scale: 1, y: 0 }}
+							transition={{ duration: 0.12 }}
+							key={'upButton'}
+						>
+							<KeyboardArrowUpIcon fontSize="large" />
+						</motion.button>
+					)}
+				</AnimatePresence>
+			</div>
 
 			<section className="flex h-full w-11/12">
 				<AnimatePresence
@@ -177,8 +190,6 @@ const About = () => {
 						exit="exit"
 						transition={{
 							duration: 0.4,
-							// x: { type: 'spring', stiffness: 300, damping: 30 },
-							// opacity: { duration: 0.2 },
 						}}
 						className="h-full w-full"
 					>
@@ -190,9 +201,22 @@ const About = () => {
 				</section>
 			</section>
 
-			<button onClick={goDown}>
-				<KeyboardArrowDownIcon fontSize="large" />
-			</button>
+			<div className="h-10">
+				<AnimatePresence>
+					{page !== aboutCellContents.length - 1 && (
+						<motion.button
+							onClick={goDown}
+							whileHover={{ scale: 1.5 }}
+							whileTap={{ scale: 1.2, y: 10 }}
+							exit={{ scale: 1, y: 0 }}
+							transition={{ duration: 0.12 }}
+							key={'downButton'}
+						>
+							<KeyboardArrowDownIcon fontSize="large" />
+						</motion.button>
+					)}
+				</AnimatePresence>
+			</div>
 		</main>
 	);
 };
