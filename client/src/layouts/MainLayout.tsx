@@ -11,9 +11,7 @@ const MainLayout = () => {
 			<MainPageHeader />
 			<NavBar />
 
-			<main className='px-10'>
-				<Outlet />
-			</main>
+			<Outlet />
 		</div>
 	);
 };

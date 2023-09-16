@@ -1,9 +1,14 @@
 import AboutCell from '../components/AboutCell';
 import { v4 as uuid } from 'uuid';
 import { AboutCellContent } from '../types';
-import { useMotionValueEvent, useScroll } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
+import { twMerge } from 'tailwind-merge';
+import classNames from 'classnames';
+
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import PictureBox from '../components/PictureBox';
 
 const aboutCellContents: AboutCellContent[] = [
 	{
@@ -36,7 +41,7 @@ const aboutCellContents: AboutCellContent[] = [
 	{
 		id: uuid(),
 		index: 2,
-		title: 'Programlamanı Temelleri',
+		title: 'Temeller',
 		titleSignLink: '/Fundamentals.svg',
 		body: [
 			'2020 Yılında programlamaya ilk GO dilini öğrenerek başladım.',
@@ -88,82 +93,107 @@ const aboutCellContents: AboutCellContent[] = [
 	},
 ];
 
+const variants = {
+	enter: (direction: number) => {
+		return {
+			y: direction > 0 ? 1000 : -1000,
+			opacity: 0,
+		};
+	},
+
+	center: {
+		y: 0,
+		opacity: 1,
+	},
+
+	exit: (direction: number) => {
+		return {
+			y: direction < 0 ? 1000 : -1000,
+			opacity: 0,
+		};
+	},
+};
+
 const About = () => {
-	const ref = useRef(null);
-	const [test, setTest] = useState(0);
+	const [[page, direction], setPage] = useState([0, 0]);
 
-	const { scrollY } = useScroll({
-		container: ref,
-	});
-
-	useMotionValueEvent(scrollY, 'change', (latest) => {
-		setTest(latest);
-	});
-
-	const getNavigationClasses = (idx: number) => {
-		console.log('Test => ', test);
-		// console.log('Index => ', idx);
-		// console.log('Test / (480) => ', test / 480);
-		if (test === 480) console.log('HIT! 480 Test => ', test);
-		if (test === 960) console.log('HIT! 960 Test => ', test);
-		if (test === 1440) console.log('HIT! 1440 Test => ', test);
-		if (test === 1920) console.log('HIT! 1920 Test => ', test);
-		if (test === 2400) console.log('HIT! 2400 Test => ', test);
+	const goUp = () => {
+		if (page < 1) return;
+		setPage([page - 1, -1]);
 	};
-	getNavigationClasses(0);
+
+	const goDown = () => {
+		if (page >= aboutCellContents.length - 1) return;
+		setPage([page + 1, 1]);
+	};
+
+	const getNavigationSet = (cell: AboutCellContent) => {
+		const buttonClasses = twMerge(
+			classNames('h-12 w-12 rounded-full bg-white', {
+				'bg-[#00A3FF]': cell.index <= page,
+			})
+		);
+
+		const divClasses = twMerge(
+			classNames('h-12 w-0 rounded-full border-2 border-[#00A3FF]', {
+				'border-dashed border-white': cell.index >= page,
+			})
+		);
+
+		return (
+			<div className="flex flex-col items-center gap-y-1" key={cell.id}>
+				<button
+					className={buttonClasses}
+					onClick={() => setPage([cell.index, 1])}
+				/>
+
+				{cell.index !== aboutCellContents.length - 1 && (
+					<div className={divClasses}></div>
+				)}
+			</div>
+		);
+	};
 
 	return (
-		<div className="my-10 flex min-h-screen flex-col items-center">
-			<section className="flex justify-center py-5">
-				<div className="relative h-52 w-52">
-					<img
-						src="/images/PP2.jpg"
-						alt=""
-						className="absolute w-52 animate-fade rounded-full"
-					/>
-					<img
-						src="/images/PP1.jpg"
-						alt=""
-						className="absolute w-52 -rotate-[30deg] animate-fade2 rounded-full"
-					/>
-					<img
-						src="/images/PP3.jpg"
-						alt=""
-						className="absolute w-52 animate-fade3 rounded-full"
-					/>
-					<img
-						src="/images/PP4.jpg"
-						alt=""
-						className="absolute w-52 animate-fade4 rounded-full"
-					/>
-				</div>
+		<main className="relative flex h-screen w-full flex-col items-center justify-between py-10">
+			<PictureBox />
+
+			<button onClick={goUp}>
+				<KeyboardArrowUpIcon fontSize="large" />
+			</button>
+
+			<section className="flex h-full w-11/12">
+				<AnimatePresence
+					mode="popLayout"
+					custom={direction}
+					initial={false}
+				>
+					<motion.div
+						key={page}
+						custom={direction}
+						variants={variants}
+						initial="enter"
+						animate="center"
+						exit="exit"
+						transition={{
+							duration: 0.4,
+							// x: { type: 'spring', stiffness: 300, damping: 30 },
+							// opacity: { duration: 0.2 },
+						}}
+						className="h-full w-full"
+					>
+						<AboutCell cell={aboutCellContents[page]} />
+					</motion.div>
+				</AnimatePresence>
+				<section className="flex w-1/12 flex-col items-center gap-y-1 self-center">
+					{aboutCellContents.map((cell) => getNavigationSet(cell))}
+				</section>
 			</section>
 
-			<div className="flex h-[600px] w-7/12 rounded-3xl bg-[#282828]">
-				<section className="h-full w-11/12 overflow-y-scroll" ref={ref}>
-					{/* <AboutCell cell={AboutCellContents[1]} /> */}
-
-					{aboutCellContents.map((cell) => (
-						<AboutCell key={cell.id} cell={cell} />
-					))}
-				</section>
-
-				<section className="flex w-1/12 flex-col items-center gap-y-1 self-center">
-					{aboutCellContents.map((cell) => (
-						<>
-							{/* {getNavigationClasses(cell.index)} */}
-							<a
-								className="h-12 w-12 rounded-full bg-blue-300"
-								href={`/#${cell.index}`}
-							/>
-							{cell.index !== aboutCellContents.length - 1 && (
-								<div className="h-12 rounded-full border-2 border-dashed"></div>
-							)}
-						</>
-					))}
-				</section>
-			</div>
-		</div>
+			<button onClick={goDown}>
+				<KeyboardArrowDownIcon fontSize="large" />
+			</button>
+		</main>
 	);
 };
 

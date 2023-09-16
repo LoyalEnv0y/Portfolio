@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import '../public/index.css';
@@ -21,17 +20,17 @@ const router = createBrowserRouter([
 			},
 			{ path: 'projects', element: <div>Projects page goes here</div> },
 			{
-				path: 'Certificates',
+				path: 'certificates',
 				element: <div>Certificates page goes here</div>,
 			},
-			{ path: 'Contact', element: <div>Contact page goes here</div> },
+			{ path: 'contact', element: <div>Contact page goes here</div> },
 		],
 	},
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	// <React.StrictMode>
-		<RouterProvider router={router} />
+	<RouterProvider router={router} />
 	// </React.StrictMode>
 );
 
