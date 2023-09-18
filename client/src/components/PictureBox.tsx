@@ -1,6 +1,6 @@
 const PictureBox = () => {
 	return (
-		<section className="flex justify-center self-start py-5 absolute left-5 top-2">
+		<section className="absolute left-5 top-2 flex justify-center self-start py-5">
 			<div className="relative h-32 w-32">
 				<img
 					src="/images/PP2.jpg"

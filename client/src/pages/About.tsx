@@ -63,12 +63,7 @@ const contents: AboutCellContent[] = [
 			'Okulun ilk yılında bilmediğim teknolojiler (C#, MsSQL, Java) üzerine yoğunlaşıp bu teknolojiler ile projeler yaptım.',
 			'Full-Stack Web Developer olmaya karar verdim. Bunun için sırasıyla Node.js, Express.Js, MongoDB, ve REST API tasarımı öğrenmeye başladım. Bu teknolojileri kullanarak projeler geliştirdim.',
 		],
-		imageLinks: [
-			'Books.jpg',
-			'IEU.jpg',
-			'Projects.png',
-			'Web-Dev.jpg',
-		],
+		imageLinks: ['Books.jpg', 'IEU.jpg', 'Projects.png', 'Web-Dev.jpg'],
 	},
 
 	{

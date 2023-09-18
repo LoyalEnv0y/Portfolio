@@ -10,10 +10,6 @@
 	display: none;
 }
 
-.test {
-	transition: 1s;
-}
-
 #root {
 	background-color: #111928;
 	scroll-behavior: smooth;
@@ -26,13 +22,3 @@
 		align-items: center;
 	}
 }
-
-/* @keyframes come-in {
-	from {
-		transform: translateX(1000px);
-	}
-
-	to {
-		transform: translate(0px);
-	}
-}  */

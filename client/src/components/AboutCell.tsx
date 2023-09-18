@@ -77,11 +77,14 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 						duration: 1,
 						type: 'spring',
 					}}
-					className="mt-10 h-1/6 text-4xl font-bold flex gap-x-5"
+					className="mt-10 flex h-1/6 gap-x-5 text-4xl font-bold"
 				>
 					{cell.title}
 					{cell.titleSignLink && (
-						<img src={`/assets/${cell.titleSignLink}`} className='w-12 h-12' />
+						<img
+							src={`/assets/${cell.titleSignLink}`}
+							className="h-12 w-12"
+						/>
 					)}
 				</motion.h2>
 
