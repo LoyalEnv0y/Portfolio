@@ -10,13 +10,14 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PictureBox from '../components/PictureBox';
 
-const aboutCellContents: AboutCellContent[] = [
+const contents: AboutCellContent[] = [
 	{
 		id: uuid(),
 		index: 0,
 		title: 'Kim? Kim??',
+		titleSignLink: 'Who.svg',
 		body: [
-			'Merhaba! Ben Çetin Tekin. İzmir Ekonomi Üniversitesi’nde Bilgisayar programcılığı okuyorum. Kendimi Web Geliştirme üzerinde geliştiriyor, hergün yeni teknolojiler öğreniyor, ve öğrendiğim teknolojiler ile pratiğimi geliştiriyorum. Kendimi yazılım dünyasında mutlu hissediyorum ve proje geliştirmeye, yeni şeyler öğrenmeye bayılıyorum.',
+			'Merhaba! Ben Çetin Tekin. İzmir Ekonomi Üniversitesi’nde Bilgisayar programcılığı okuyorum. Kendimi Web Geliştirme üzerinde geliştiriyor, her gün yeni teknolojiler öğreniyor, ve öğrendiğim teknolojiler ile pratiğimi geliştiriyorum. Kendimi yazılım dünyasında mutlu hissediyorum ve proje geliştirmeye, yeni şeyler öğrenmeye bayılıyorum.',
 		],
 		svgLinks: ['University.svg', 'Programming.svg', 'Student.svg'],
 	},
@@ -48,7 +49,7 @@ const aboutCellContents: AboutCellContent[] = [
 			'Daha sonra algoritmalar ve veri yapılarını öğrenmeye başladım. LeetCode, Exercism, Hackerrank gibi sitelerde pratiğimi geliştirdim.',
 			'Daha sonra API tasarımı ve Web Geliştirme öğrenmek istediğim için MySQL ve HTML, CSS, JS öğrenmeye başladım.',
 		],
-		imageLinks: ['GO.png', 'Grokking.jpg', 'Web-Tech.jpg'],
+		imageLinks: ['GO.png', 'Grokking.jpg', 'SimpleSite.png'],
 	},
 
 	{
@@ -65,7 +66,7 @@ const aboutCellContents: AboutCellContent[] = [
 		imageLinks: [
 			'Books.jpg',
 			'IEU.jpg',
-			'Career-At-Programming.jpg',
+			'Projects.png',
 			'Web-Dev.jpg',
 		],
 	},
@@ -81,13 +82,13 @@ const aboutCellContents: AboutCellContent[] = [
 		],
 		svgLinks: [
 			'React.svg',
-			'React-Router.svg',
-			'Redis.svg',
 			'Redux.svg',
+			'React-Router.svg',
 			'Tailwind.svg',
-			'Docker.svg',
 			'Nextjs.svg',
 			'Nestjs.svg',
+			'Redis.svg',
+			'Docker.svg',
 			'Socketio.svg',
 		],
 	},
@@ -123,7 +124,7 @@ const About = () => {
 	};
 
 	const goDown = () => {
-		if (page >= aboutCellContents.length - 1) return;
+		if (page >= contents.length - 1) return;
 		setPage([page + 1, 1]);
 	};
 
@@ -147,7 +148,7 @@ const About = () => {
 					onClick={() => setPage([cell.index, 1])}
 				/>
 
-				{cell.index !== aboutCellContents.length - 1 && (
+				{cell.index !== contents.length - 1 && (
 					<div className={divClasses}></div>
 				)}
 			</div>
@@ -164,7 +165,7 @@ const About = () => {
 						<motion.button
 							onClick={goUp}
 							whileHover={{ scale: 1.5 }}
-							whileTap={{ scale: 1.2, y: -10 }}
+							whileTap={{ scale: 1.2, y: -4 }}
 							exit={{ scale: 1, y: 0 }}
 							transition={{ duration: 0.12 }}
 							key={'upButton'}
@@ -193,21 +194,22 @@ const About = () => {
 						}}
 						className="h-full w-full"
 					>
-						<AboutCell cell={aboutCellContents[page]} />
+						<AboutCell cell={contents[page]} />
 					</motion.div>
 				</AnimatePresence>
+
 				<section className="flex w-1/12 flex-col items-center gap-y-1 self-center">
-					{aboutCellContents.map((cell) => getNavigationSet(cell))}
+					{contents.map((cell) => getNavigationSet(cell))}
 				</section>
 			</section>
 
 			<div className="h-10">
 				<AnimatePresence>
-					{page !== aboutCellContents.length - 1 && (
+					{page !== contents.length - 1 && (
 						<motion.button
 							onClick={goDown}
 							whileHover={{ scale: 1.5 }}
-							whileTap={{ scale: 1.2, y: 10 }}
+							whileTap={{ scale: 1.2, y: 4 }}
 							exit={{ scale: 1, y: 0 }}
 							transition={{ duration: 0.12 }}
 							key={'downButton'}

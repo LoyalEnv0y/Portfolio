@@ -32,8 +32,38 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 		return twMerge(
 			classNames(
 				'w-[90%] leading-relaxed transition group-hover:translate-x-3 text-xl',
-				{ 'translate-x-3 text-[#00A3FF]': activeImgIdx === idx }
+				{ 'translate-x-3 text-[#84d4ff]': activeImgIdx === idx }
 			)
+		);
+	};
+
+	const getSvgContainer = (cell: AboutCellContent) => {
+		if (!cell.svgLinks) return;
+		return (
+			<div className="flex max-h-full max-w-full flex-wrap gap-10">
+				{cell.svgLinks.map((svg, i) => (
+					<motion.div
+						initial={{ x: 1000, opacity: 0 }}
+						animate={{ x: 0, opacity: 1 }}
+						transition={{
+							x: {
+								duration: 0.2,
+								delay: i / 10,
+								type: 'spring',
+								stiffness: 70,
+								damping: 12,
+							},
+						}}
+						className="flex h-32 w-32 items-center justify-center rounded-xl bg-[#2d2d2d]"
+					>
+						<img
+							src={`/assets/${svg}`}
+							alt=""
+							className="h-28 w-28 rounded-xl"
+						/>
+					</motion.div>
+				))}
+			</div>
 		);
 	};
 
@@ -47,12 +77,15 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 						duration: 1,
 						type: 'spring',
 					}}
-					className="mt-10 h-1/6 text-4xl font-bold"
+					className="mt-10 h-1/6 text-4xl font-bold flex gap-x-5"
 				>
 					{cell.title}
+					{cell.titleSignLink && (
+						<img src={`/assets/${cell.titleSignLink}`} className='w-12 h-12' />
+					)}
 				</motion.h2>
 
-				<div className="flex h-5/6 flex-col gap-y-10 items-center">
+				<div className="flex h-5/6 flex-col items-center gap-y-10">
 					{cell.body.map((row, i) => (
 						<motion.div
 							initial={{ opacity: 0, x: -1000 }}
@@ -81,6 +114,8 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 						}}
 					/>
 				)}
+
+				{getSvgContainer(cell)}
 			</div>
 		</section>
 	);
