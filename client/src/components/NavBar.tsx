@@ -5,10 +5,11 @@ import classNames from 'classnames';
 import { twMerge } from 'tailwind-merge';
 import { v4 as uuid } from 'uuid';
 import { Link } from '../types';
+import { NavLink } from 'react-router-dom';
 
 const links: Link[] = [
 	{ id: uuid(), content: 'Ana Sayfa', to: '/' },
-	{ id: uuid(), content: 'Teknolojiler', to: '/' },
+	{ id: uuid(), content: 'Teknolojiler', to: '/techs' },
 	{ id: uuid(), content: 'Projeler', to: '/' },
 	{ id: uuid(), content: 'Sertifikalar', to: '/' },
 	{ id: uuid(), content: 'İletişim', to: '/' },
@@ -27,6 +28,15 @@ const NavBar = () => {
 		)
 	);
 
+	const getNavLinkClasses = ({ isActive }: { isActive: boolean }): string => {
+		const baseClasses =
+			'text-3xl font-semibold transition group-hover:translate-x-7 group-hover:font-bold';
+
+		return twMerge(
+			classNames(baseClasses, { 'underline font-bold': isActive })
+		);
+	};
+
 	const navContent = isMenuOpen && (
 		<div className="flex h-full w-full items-center justify-center">
 			<nav className="flex h-2/3 w-1/3 flex-col gap-y-4">
@@ -37,12 +47,9 @@ const NavBar = () => {
 						className="group flex items-center gap-x-10 py-3 hover:text-blue-500"
 					>
 						<div className="h-2 w-2 bg-fuchsia-600 transition group-hover:rotate-[135deg] group-hover:scale-150" />
-						<a
-							href={link.to}
-							className="text-3xl font-semibold transition group-hover:translate-x-7 group-hover:font-bold"
-						>
+						<NavLink to={link.to} className={getNavLinkClasses}>
 							{link.content}
-						</a>
+						</NavLink>
 					</div>
 				))}
 			</nav>
