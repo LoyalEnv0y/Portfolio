@@ -9,6 +9,7 @@ import { Link } from '../types';
 const links: Link[] = [
 	{ id: uuid(), content: 'Ana Sayfa', to: '/' },
 	{ id: uuid(), content: 'Teknolojiler', to: '/' },
+	{ id: uuid(), content: 'Projeler', to: '/' },
 	{ id: uuid(), content: 'Sertifikalar', to: '/' },
 	{ id: uuid(), content: 'İletişim', to: '/' },
 ];

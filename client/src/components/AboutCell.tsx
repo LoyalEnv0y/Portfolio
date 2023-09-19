@@ -3,6 +3,7 @@ import { AboutCellContent } from '../types';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import { v4 as uuid } from 'uuid';
 
 type AboutCellProps = {
 	cell: AboutCellContent;
@@ -55,6 +56,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 							},
 						}}
 						className="flex h-32 w-32 items-center justify-center rounded-xl bg-[#2d2d2d]"
+						key={uuid()}
 					>
 						<img
 							src={`/assets/${svg}`}
