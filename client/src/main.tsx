@@ -1,9 +1,11 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import '../public/index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout.tsx';
 import About from './pages/About.tsx';
+import Techs from './pages/Techs.tsx';
 
 const router = createBrowserRouter([
 	{
@@ -15,8 +17,8 @@ const router = createBrowserRouter([
 				element: <About />,
 			},
 			{
-				path: 'technologies',
-				element: <div>Technologies page goes here</div>,
+				path: 'techs',
+				element: <Techs />,
 			},
 			{ path: 'projects', element: <div>Projects page goes here</div> },
 			{
@@ -29,8 +31,8 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-	// <React.StrictMode>
-	<RouterProvider router={router} />
-	// </React.StrictMode>
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>
 );
 
