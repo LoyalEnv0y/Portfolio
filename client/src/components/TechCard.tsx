@@ -14,12 +14,12 @@ const TechCard = ({ tech, handleClick }: TechCardProps) => {
 
 	return (
 		<div
-			className={`w-[400px] cursor-pointer rounded-[4rem] bg-white ${height}`}
-			onClick={() => handleClick(tech.id)}
+			className={`w-[400px] rounded-[4rem] ${height}`}
 		>
 			<header
-				className="bg-[${tech.colorHex}] flex h-28 w-full items-center justify-evenly rounded-t-[4rem]"
+				className="bg-[${tech.colorHex}] flex h-28 w-full items-center justify-evenly rounded-t-[4rem] cursor-pointer"
 				style={{ backgroundColor: tech.colorHex }}
+				onClick={() => handleClick(tech.id)}
 			>
 				<h3 className="text-3xl font-semibold">{tech.title}</h3>
 				<div className="flex h-20 w-20 items-center justify-center rounded-full bg-white">
@@ -28,8 +28,8 @@ const TechCard = ({ tech, handleClick }: TechCardProps) => {
 			</header>
 
 			{tech.isOpen && (
-				<main className="h-[650px] p-4">
-					<p className="h-[20%] text-black">{tech.description}</p>
+				<main className="h-[650px] p-4 bg-white">
+					<p className="h-[20%] text-black text-sm">{tech.description}</p>
 
 					<div className="flex justify-evenly rounded-t-xl border-b-2 bg-[#282828] p-1 text-white">
 						<a href="">Projeler</a>

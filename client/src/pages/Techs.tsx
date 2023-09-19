@@ -31,12 +31,12 @@ const Techs = () => {
 				</div>
 			</div>
 
-			<section>
+			<section className='flex flex-col gap-y-20 mb-20'>
 				<div className="flex h-20 w-[317px] items-center justify-center bg-[url('images/Blob-Title.png')] bg-contain bg-center bg-no-repeat">
 					<h2 className="text-2xl">Programlama Dilleri</h2>
 				</div>
 
-				<div className="flex flex-wrap justify-evenly gap-y-10">
+				<div className="flex flex-wrap justify-between gap-y-20">
 					{techs.map((tech) => (
 						<TechCard
 							tech={tech}
