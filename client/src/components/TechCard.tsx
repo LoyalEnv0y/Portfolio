@@ -1,4 +1,6 @@
+import { twMerge } from 'tailwind-merge';
 import { Tech } from '../types';
+import classNames from 'classnames';
 
 type TechCardProps = {
 	tech: Tech;
@@ -12,12 +14,44 @@ const TechCard = ({ tech, handleClick }: TechCardProps) => {
 		return 470 - 21.6 * (tech.knowledgePercent / 10);
 	};
 
+	function hexToRgb(hex: string): string {
+		const hexCode = hex.slice(1);
+
+		const bigint = parseInt(hexCode, 16);
+		const r = (bigint >> 16) & 255;
+		const g = (bigint >> 8) & 255;
+		const b = bigint & 255;
+
+		return r + ',' + g + ',' + b;
+	}
+
+	function rgbToHex(r: number, g: number, b: number) {
+		return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
+	}
+
+	const darken = () => {
+		const rgb = hexToRgb(tech.colorHex).split(',');
+		let [r, g, b] = rgb.map((i) => parseInt(i));
+
+		r = r < 1 ? 0 : r - r * 0.19;
+		g = g < 1 ? 0 : g - g * 0.19;
+		b = b < 1 ? 0 : b - b * 0.19;
+
+		return rgbToHex(r, g, b);
+	};
+
+	const getHeaderClasses = () => {
+		return twMerge(
+			classNames(
+				`flex h-28 w-full cursor-pointer select-none items-center justify-evenly rounded-t-[4rem] hover:bg-[${darken()}]`
+			)
+		);
+	};
+
 	return (
-		<div
-			className={`w-[400px] rounded-[4rem] ${height}`}
-		>
+		<div className={`w-[400px] rounded-[4rem] ${height}`}>
 			<header
-				className="bg-[${tech.colorHex}] flex h-28 w-full items-center justify-evenly rounded-t-[4rem] cursor-pointer"
+				className={getHeaderClasses()}
 				style={{ backgroundColor: tech.colorHex }}
 				onClick={() => handleClick(tech.id)}
 			>
@@ -27,9 +61,9 @@ const TechCard = ({ tech, handleClick }: TechCardProps) => {
 				</div>
 			</header>
 
-			{tech.isOpen && (
-				<main className="h-[650px] p-4 bg-white">
-					<p className="h-[20%] text-black text-sm">{tech.description}</p>
+			{tech.isOpen ? (
+				<main className="h-[650px] bg-white p-4">
+					<p className="h-[20%] text-sm text-black">{tech.description}</p>
 
 					<div className="flex justify-evenly rounded-t-xl border-b-2 bg-[#282828] p-1 text-white">
 						<a href="">Projeler</a>
@@ -38,6 +72,8 @@ const TechCard = ({ tech, handleClick }: TechCardProps) => {
 
 					<div className="h-[74%] w-full rounded-b-xl bg-[#282828]"></div>
 				</main>
+			) : (
+				<div className="h-1 w-full bg-white"></div>
 			)}
 
 			<footer
