@@ -23,7 +23,7 @@ export const techsData: Tech[] = [
 		colorHex: '#1572B6',
 	},
 	{
-		id: uuid(), 
+		id: uuid(),
 		title: 'JavaScript',
 		logoUrl: '/assets/JS.svg',
 		description:
@@ -55,7 +55,7 @@ export const techsData: Tech[] = [
 	{
 		id: uuid(),
 		title: 'C#',
-		logoUrl: '/assets/C#.svg',
+		logoUrl: '/assets/C-Sharp.svg',
 		description:
 			'Yine Üniversitede gösterilen teknolojilerden biri olduğu için derslerden önce boş zamanımda çalışarak öğrendiğim bir diğer dil olan c# ile OOP bilgimi geliştirdim ve Windows Formları ile arayüz oluşturmayı öğrendim.',
 		knowledgePercent: 50,
