@@ -5,11 +5,11 @@ import About from './components/About';
 
 const App = () => {
 	return (
-		<>
+		<div className="overflow-x-hidden">
 			<Header />
 
-			<main className="my-10 flex min-h-screen flex-col items-center px-10">
-				<section className="flex flex-col items-center justify-center gap-y-10">
+			<main className="my-10 flex min-h-screen w-screen flex-col items-center px-5">
+				<section className="flex w-full flex-col items-center justify-center gap-y-5 font-rubik">
 					<SectionTitle text="Hakkımda" />
 
 					<PictureBox />
@@ -17,7 +17,7 @@ const App = () => {
 					<About />
 				</section>
 			</main>
-		</>
+		</div>
 	);
 };
 

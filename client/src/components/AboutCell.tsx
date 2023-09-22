@@ -14,7 +14,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 
 	const getTextBoxClasses = (idx: number): string => {
 		return twMerge(
-			classNames('group flex items-center w-11/12 gap-x-4 cursor-pointer', {
+			classNames('group flex items-center gap-x-4 cursor-pointer', {
 				'font-semibold': activeImgIdx === idx,
 			})
 		);
@@ -32,7 +32,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 	const getTextClasses = (idx: number): string => {
 		return twMerge(
 			classNames(
-				'w-[90%] leading-relaxed transition group-hover:translate-x-3 text-lg',
+				'w-[90%] leading-relaxed transition group-hover:translate-x-3 text-sm sm:text-xl lg:text-2xl',
 				{ 'translate-x-3': activeImgIdx === idx }
 			)
 		);
@@ -70,8 +70,8 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 	};
 
 	return (
-		<section className="flex h-full justify-evenly">
-			<div className="h-full flex flex-col items-center">
+		<section className="w-full my-5">
+			<div className="flex flex-col items-center gap-y-5">
 				<motion.h3
 					initial={{ opacity: 0, x: -1000 }}
 					animate={{ opacity: 1, x: 0 }}
@@ -79,13 +79,13 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 						duration: 1,
 						type: 'spring',
 					}}
-					className="mx-auto flex gap-x-5 text-4xl font-bold"
+					className="flex gap-x-4 text-lg font-bold items-center"
 				>
 					{cell.title}
 					{cell.titleSignLink && (
 						<img
 							src={`/assets/${cell.titleSignLink}`}
-							className="h-12 w-12"
+							className="h-5 w-5"
 						/>
 					)}
 				</motion.h3>
@@ -110,7 +110,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 					))}
 				</div>
 			</div>
-			<div className="flex h-full w-2/4 items-center justify-center">
+			{/* <div className="flex h-full w-1/3 items-center justify-center">
 				{cell.imageLinks && (
 					<div
 						className="h-96 w-96 rounded-3xl bg-cover bg-center bg-no-repeat"
@@ -121,7 +121,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 				)}
 
 				{getSvgContainer(cell)}
-			</div>
+			</div> */}
 		</section>
 	);
 };
