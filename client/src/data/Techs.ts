@@ -1,7 +1,7 @@
 import { Tech } from '../types';
 import { v4 as uuid } from 'uuid';
 
-export const techsData: Tech[] = [
+export default [
 	{
 		id: uuid(),
 		title: 'HTML',
@@ -82,4 +82,4 @@ export const techsData: Tech[] = [
 		isOpen: false,
 		colorHex: '#3FAE2A',
 	},
-];
+] as Tech[];

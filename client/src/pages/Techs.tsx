@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import TechCard from '../components/TechCard';
-import { techsData } from '../data';
+import techsData  from '../data/Techs';
 
 const Techs = () => {
 	const [techs, setTechs] = useState(techsData);

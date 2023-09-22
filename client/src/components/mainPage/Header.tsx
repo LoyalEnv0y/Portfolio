@@ -1,6 +1,5 @@
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useRef } from 'react';
-import Slider from './Slider';
 
 const MainPageHeader = () => {
 	const ref = useRef(null);
@@ -76,7 +75,6 @@ const MainPageHeader = () => {
 					<h2 className="text-2xl md:text-4xl">Web Geliştirici</h2>
 				</div>
 			</div>
-			<Slider />
 		</header>
 	);
 };
