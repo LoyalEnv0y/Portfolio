@@ -23,7 +23,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 	const getTextIconClasses = (idx: number): string => {
 		return twMerge(
 			classNames(
-				'h-2 w-2 bg-[#00A3FF] transition group-hover:rotate-[135deg] group-hover:scale-150 rounded-sm',
+				'h-2 w-2 bg-secondary transition group-hover:rotate-[135deg] group-hover:scale-150 rounded-sm',
 				{ 'rotate-[135deg] scale-150': activeImgIdx === idx }
 			)
 		);
@@ -32,8 +32,8 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 	const getTextClasses = (idx: number): string => {
 		return twMerge(
 			classNames(
-				'w-[90%] leading-relaxed transition group-hover:translate-x-3 text-xl',
-				{ 'translate-x-3 text-[#84d4ff]': activeImgIdx === idx }
+				'w-[90%] leading-relaxed transition group-hover:translate-x-3 text-lg',
+				{ 'translate-x-3': activeImgIdx === idx }
 			)
 		);
 	};
@@ -70,16 +70,16 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 	};
 
 	return (
-		<section className="flex h-full p-10">
-			<div className="flex h-full w-3/4 flex-col items-center p-3">
-				<motion.h2
+		<section className="flex h-full justify-evenly">
+			<div className="h-full flex flex-col items-center">
+				<motion.h3
 					initial={{ opacity: 0, x: -1000 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{
 						duration: 1,
 						type: 'spring',
 					}}
-					className="mt-10 flex h-1/6 gap-x-5 text-4xl font-bold"
+					className="mx-auto flex gap-x-5 text-4xl font-bold"
 				>
 					{cell.title}
 					{cell.titleSignLink && (
@@ -88,7 +88,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 							className="h-12 w-12"
 						/>
 					)}
-				</motion.h2>
+				</motion.h3>
 
 				<div className="flex h-5/6 flex-col items-center gap-y-10">
 					{cell.body.map((row, i) => (

@@ -6,8 +6,23 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'neutral': '#FFFFFF',
+        'primary': '#67DAFF',
+        'secondary': '#F367FF',
+      },
+
       screens: {
         'large': '1921px'
+      },
+
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        amatic: ['"Amatic SC"', 'cursive'],
+        orbitron: ['Orbitron', 'sans-serif'],
+        vibes: ['"Great Vibes"', 'cursive'],
+        sacramento: ['Sacramento', 'cursive'],
+        rubik: ['Rubik', 'cursive']
       },
 
       keyframes: {
@@ -50,23 +65,11 @@ export default {
       animation: {
         slide: 'slide 40s linear infinite',
         roll: 'roll 30s linear infinite',
-        // fade: 'fade 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
-        // fade2: 'fade2 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
-        // fade3: 'fade3 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
-        // fade4: 'fade4 15s cubic-bezier(0.16, 1, 0.3, 1) infinite',
         fade: 'fade 15s linear infinite',
         fade2: 'fade2 15s linear infinite',
         fade3: 'fade3 15s linear infinite',
         fade4: 'fade4 15s linear infinite',
       },
-
-      fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
-        amatic: ['"Amatic SC"', 'cursive'],
-        orbitron: ['Orbitron', 'sans-serif'],
-        vibes: ['"Great Vibes"', 'cursive'],
-        sacramento: ['Sacramento', 'cursive'],
-      }
     },
   },
   plugins: [],

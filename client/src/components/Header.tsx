@@ -1,7 +1,7 @@
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { useRef } from 'react';
 
-const MainPageHeader = () => {
+const Header = () => {
 	const ref = useRef(null);
 
 	// useScroll hook returns properties for the given element and properties.
@@ -79,4 +79,4 @@ const MainPageHeader = () => {
 	);
 };
 
-export default MainPageHeader;
+export default Header;

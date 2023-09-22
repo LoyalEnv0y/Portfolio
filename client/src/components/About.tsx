@@ -1,4 +1,4 @@
-import AboutCell from '../components/AboutCell';
+import AboutCell from './AboutCell';
 import { AboutCellContent } from '../types';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
@@ -7,7 +7,6 @@ import classNames from 'classnames';
 
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import PictureBox from '../components/PictureBox';
 import contents from '../data/About';
 
 const variants = {
@@ -47,12 +46,12 @@ const About = () => {
 	const getNavigationSet = (cell: AboutCellContent) => {
 		const buttonClasses = twMerge(
 			classNames('h-12 w-12 rounded-full bg-white', {
-				'bg-[#00A3FF]': cell.index <= page,
+				'bg-secondary': cell.index <= page,
 			})
 		);
 
 		const divClasses = twMerge(
-			classNames('h-12 w-0 rounded-full border-2 border-[#00A3FF]', {
+			classNames('h-12 w-0 rounded-full border-2 border-secondary', {
 				'border-dashed border-white': cell.index >= page,
 			})
 		);
@@ -72,27 +71,23 @@ const About = () => {
 	};
 
 	return (
-		<main className="relative flex h-screen w-full flex-col items-center justify-between py-10">
-			<PictureBox />
+		<div className="bg-primary flex h-[700px] w-full flex-col items-center justify-between rounded-3xl py-4 text-black">
+			<AnimatePresence>
+				{page !== 0 && (
+					<motion.button
+						onClick={goUp}
+						whileHover={{ scale: 1.5 }}
+						whileTap={{ scale: 1.2, y: -4 }}
+						exit={{ scale: 1, y: 0 }}
+						transition={{ duration: 0.12 }}
+						key={'upButton'}
+					>
+						<KeyboardArrowUpIcon fontSize="large" />
+					</motion.button>
+				)}
+			</AnimatePresence>
 
-			<div className="h-10">
-				<AnimatePresence>
-					{page !== 0 && (
-						<motion.button
-							onClick={goUp}
-							whileHover={{ scale: 1.5 }}
-							whileTap={{ scale: 1.2, y: -4 }}
-							exit={{ scale: 1, y: 0 }}
-							transition={{ duration: 0.12 }}
-							key={'upButton'}
-						>
-							<KeyboardArrowUpIcon fontSize="large" />
-						</motion.button>
-					)}
-				</AnimatePresence>
-			</div>
-
-			<section className="flex h-full w-11/12">
+			<section className="flex h-full">
 				<AnimatePresence
 					mode="popLayout"
 					custom={direction}
@@ -108,7 +103,7 @@ const About = () => {
 						transition={{
 							duration: 0.4,
 						}}
-						className="h-full w-full"
+						className="h-full w-11/12"
 					>
 						<AboutCell cell={contents[page]} />
 					</motion.div>
@@ -119,23 +114,21 @@ const About = () => {
 				</section>
 			</section>
 
-			<div className="h-10">
-				<AnimatePresence>
-					{page !== contents.length - 1 && (
-						<motion.button
-							onClick={goDown}
-							whileHover={{ scale: 1.5 }}
-							whileTap={{ scale: 1.2, y: 4 }}
-							exit={{ scale: 1, y: 0 }}
-							transition={{ duration: 0.12 }}
-							key={'downButton'}
-						>
-							<KeyboardArrowDownIcon fontSize="large" />
-						</motion.button>
-					)}
-				</AnimatePresence>
-			</div>
-		</main>
+			<AnimatePresence>
+				{page !== contents.length - 1 && (
+					<motion.button
+						onClick={goDown}
+						whileHover={{ scale: 1.5 }}
+						whileTap={{ scale: 1.2, y: 4 }}
+						exit={{ scale: 1, y: 0 }}
+						transition={{ duration: 0.12 }}
+						key={'downButton'}
+					>
+						<KeyboardArrowDownIcon fontSize="large" />
+					</motion.button>
+				)}
+			</AnimatePresence>
+		</div>
 	);
 };
 
