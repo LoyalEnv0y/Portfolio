@@ -6,12 +6,21 @@
 	animation-play-state: paused;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
 	display: none;
-}
+} */
 
 #root {
-	background-color: #111928;
+	background: linear-gradient(
+		177deg,
+		#fff 10.28%,
+		#d4f5ff 25.23%,
+		#a7eaff 40.18%,
+		#7ee0ff 55.14%,
+		#58d6ff 70.09%,
+		#35ceff 85.05%,
+		#00c1ff 100%
+	);
 	scroll-behavior: smooth;
 }
 
