@@ -7,9 +7,10 @@ import { v4 as uuid } from 'uuid';
 
 type AboutCellProps = {
 	cell: AboutCellContent;
+	direction: number;
 };
 
-const AboutCell = ({ cell }: AboutCellProps) => {
+const AboutCell = ({ cell, direction }: AboutCellProps) => {
 	const [activeImgIdx, setActiveImgIdx] = useState(0);
 
 	const getTextBoxClasses = (idx: number): string => {
@@ -32,7 +33,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 	const getTextClasses = (idx: number): string => {
 		return twMerge(
 			classNames(
-				'w-[90%] leading-relaxed transition group-hover:translate-x-3 text-sm sm:text-xl lg:text-2xl',
+				'w-[90%] leading-relaxed transition group-hover:translate-x-3 text-sm',
 				{ 'translate-x-3': activeImgIdx === idx }
 			)
 		);
@@ -40,11 +41,12 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 
 	const getSvgContainer = (cell: AboutCellContent) => {
 		if (!cell.svgLinks) return;
+
 		return (
-			<div className="flex max-h-full max-w-full flex-wrap gap-10">
+			<div className="flex max-h-full max-w-full flex-wrap justify-center gap-5">
 				{cell.svgLinks.map((svg, i) => (
 					<motion.div
-						initial={{ x: 1000, opacity: 0 }}
+						initial={{ x: direction > 0 ? -1000 : 1000, opacity: 0 }}
 						animate={{ x: 0, opacity: 1 }}
 						transition={{
 							x: {
@@ -55,13 +57,13 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 								damping: 12,
 							},
 						}}
-						className="flex h-32 w-32 items-center justify-center rounded-xl bg-[#2d2d2d]"
+						className="bg-neutral flex h-16 w-16 items-center justify-center rounded-xl"
 						key={uuid()}
 					>
 						<img
 							src={`/assets/${svg}`}
 							alt=""
-							className="h-28 w-28 rounded-xl"
+							className="h-12 w-12 rounded-xl"
 						/>
 					</motion.div>
 				))}
@@ -70,10 +72,10 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 	};
 
 	return (
-		<section className="w-full my-5">
+		<section className="my-5 w-full">
 			<div className="flex flex-col items-center gap-y-5">
 				<motion.h3
-					initial={{ opacity: 0, x: -1000 }}
+					initial={{ opacity: 0, x: direction > 0 ? -1000 : 1000 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{
 						duration: 1,
@@ -93,7 +95,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 				<div className="flex h-5/6 flex-col items-center gap-y-10">
 					{cell.body.map((row, i) => (
 						<motion.div
-							initial={{ opacity: 0, x: -1000 }}
+							initial={{ opacity: 0, x: direction > 0 ? -1000 : 1000 }}
 							animate={{ opacity: 1, x: 0 }}
 							transition={{
 								duration: 1,
@@ -110,10 +112,11 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 					))}
 				</div>
 			</div>
-			{/* <div className="flex h-full w-1/3 items-center justify-center">
+
+			<div className="mt-10 flex items-center justify-center">
 				{cell.imageLinks && (
 					<div
-						className="h-96 w-96 rounded-3xl bg-cover bg-center bg-no-repeat"
+						className="h-56 w-56 rounded-3xl bg-cover bg-center bg-no-repeat"
 						style={{
 							backgroundImage: `url(/images/${cell.imageLinks[activeImgIdx]})`,
 						}}
@@ -121,7 +124,7 @@ const AboutCell = ({ cell }: AboutCellProps) => {
 				)}
 
 				{getSvgContainer(cell)}
-			</div> */}
+			</div>
 		</section>
 	);
 };

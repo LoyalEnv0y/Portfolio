@@ -71,11 +71,11 @@ export default [
 			'Redux.svg',
 			'React-Router.svg',
 			'Tailwind.svg',
-			'Nextjs.svg',
+			'Nextjs-Dark.svg',
 			'Nestjs.svg',
 			'Redis.svg',
 			'Docker.svg',
-			'Socketio.svg',
+			'Socketio-Dark.svg',
 		],
 	},
 ] as AboutCellContent[];

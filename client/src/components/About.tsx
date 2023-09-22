@@ -15,7 +15,7 @@ import contents from '../data/About';
 const variants = {
 	enter: (direction: number) => {
 		return {
-			x: direction > 0 ? -1000 : 1000,
+			x: direction > 0 ? -500 : 500,
 			opacity: 0,
 		};
 	},
@@ -27,7 +27,7 @@ const variants = {
 
 	exit: (direction: number) => {
 		return {
-			x: direction < 0 ? -1000 : 1000,
+			x: direction < 0 ? -500 : 500,
 			opacity: 0,
 		};
 	},
@@ -63,7 +63,9 @@ const About = () => {
 			<div className="flex items-center gap-x-1" key={cell.id}>
 				<button
 					className={buttonClasses}
-					onClick={() => setPage([cell.index, 1])}
+					onClick={() =>
+						setPage([cell.index, cell.index < page ? -1 : 1])
+					}
 				/>
 
 				{cell.index !== contents.length - 1 && (
@@ -78,13 +80,9 @@ const About = () => {
 			<div className="flex w-full justify-center gap-x-1">
 				{contents.map((cell) => getNavigationSet(cell))}
 			</div>
-			{/* 
+
 			<div className="flex w-full">
-				<AnimatePresence
-					mode="popLayout"
-					custom={direction}
-					initial={false}
-				>
+				<AnimatePresence mode="wait" custom={direction} initial={false}>
 					<motion.div
 						key={page}
 						custom={direction}
@@ -94,15 +92,12 @@ const About = () => {
 						exit="exit"
 						transition={{
 							duration: 0.4,
+							type: 'spring',
 						}}
 					>
-						<AboutCell cell={contents[page]} />
+						<AboutCell cell={contents[page]} direction={direction} />
 					</motion.div>
 				</AnimatePresence>
-			</div> */}
-
-			<div className="flex w-full">
-				<AboutCell cell={contents[page]} />
 			</div>
 
 			<div className="flex w-full">
