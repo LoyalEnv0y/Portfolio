@@ -2,20 +2,28 @@ import SectionTitle from './components/SectionTitle';
 import Header from './components/Header';
 import PictureBox from './components/PictureBox';
 import About from './components/About';
+import SectionContainer from './components/SectionContainer';
+import Techs from './components/Techs';
 
 const App = () => {
 	return (
 		<div className="overflow-x-hidden">
 			<Header />
 
-			<main className="my-10 flex min-h-screen w-screen flex-col items-center px-5">
-				<section className="flex w-full flex-col items-center justify-center gap-y-5 font-rubik">
-					<SectionTitle text="Hakkımda" />
+			<main className="my-10 flex min-h-screen w-screen flex-col items-center gap-y-10 px-5 font-rubik">
+				<SectionContainer className="gap-y-5">
+					<SectionTitle text="HAKKIMDA" />
 
 					<PictureBox />
 
 					<About />
-				</section>
+				</SectionContainer>
+
+				<SectionContainer>
+					<SectionTitle text="TEKNOLOJİLER" />
+
+					<Techs />
+				</SectionContainer>
 			</main>
 		</div>
 	);
