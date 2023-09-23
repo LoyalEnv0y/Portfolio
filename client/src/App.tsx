@@ -10,8 +10,8 @@ const App = () => {
 		<div className="overflow-x-hidden">
 			<Header />
 
-			<main className="my-10 flex min-h-screen w-screen flex-col items-center gap-y-10 px-5 font-rubik">
-				<SectionContainer className="gap-y-5">
+			<main className="my-10 flex min-h-screen w-screen flex-col items-center gap-y-5 px-5 font-rubik">
+				<SectionContainer>
 					<SectionTitle text="HAKKIMDA" />
 
 					<PictureBox />

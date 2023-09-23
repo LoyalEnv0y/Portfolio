@@ -9,7 +9,7 @@ type SectionContainerProps = {
 
 const SectionContainer = ({ className, children }: SectionContainerProps) => {
 	const classes = twMerge(
-		classNames('w-full flex flex-col items-center', className)
+		classNames('w-full flex flex-col items-center gap-y-5', className)
 	);
 
 	return <section className={classes}>{children}</section>;

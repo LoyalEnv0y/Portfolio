@@ -201,7 +201,7 @@ export default {
 		{
 			id: uuid(),
 			title: 'Next.js',
-			logoUrl: '/assets/techs/Nextjs.svg',
+			logoUrl: '/assets/techs/Nextjs-Dark.svg',
 			colorHex: '#000000',
 			learned: false,
 		},
