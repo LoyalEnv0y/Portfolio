@@ -2,7 +2,7 @@ import { Techs } from '../types';
 import { v4 as uuid } from 'uuid';
 
 export default {
-	programmingLanguages: [
+	langs: [
 		{
 			id: uuid(),
 			title: 'JavaScript',
@@ -71,6 +71,41 @@ export default {
 		},
 		{
 			id: uuid(),
+			title: 'React',
+			logoUrl: '/assets/techs/React.svg',
+			colorHex: '#61DAFB',
+			learned: true,
+		},
+		{
+			id: uuid(),
+			title: 'Redux Toolkit',
+			logoUrl: '/assets/techs/Redux.svg',
+			colorHex: '#764ABC',
+			learned: true,
+		},
+		{
+			id: uuid(),
+			title: 'React Router',
+			logoUrl: '/assets/techs/React-Router.svg',
+			colorHex: '#D0021B',
+			learned: true,
+		},
+		{
+			id: uuid(),
+			title: 'Tailwind',
+			logoUrl: '/assets/techs/Tailwind.svg',
+			colorHex: '#44A8B3',
+			learned: true,
+		},
+		{
+			id: uuid(),
+			title: 'Framer Motion',
+			logoUrl: '/assets/techs/Framer-Motion.svg',
+			colorHex: '#59529D',
+			learned: true,
+		},
+		{
+			id: uuid(),
 			title: 'Axios',
 			logoUrl: '/assets/techs/Axios.svg',
 			colorHex: '#5A29E4',
@@ -102,41 +137,6 @@ export default {
 			title: 'Passport.js',
 			logoUrl: '/assets/techs/Passportjs.svg',
 			colorHex: '#34E27A',
-			learned: true,
-		},
-		{
-			id: uuid(),
-			title: 'Tailwind',
-			logoUrl: '/assets/techs/Tailwind.svg',
-			colorHex: '#44A8B3',
-			learned: true,
-		},
-		{
-			id: uuid(),
-			title: 'React',
-			logoUrl: '/assets/techs/React.svg',
-			colorHex: '#61DAFB',
-			learned: true,
-		},
-		{
-			id: uuid(),
-			title: 'Redux Toolkit',
-			logoUrl: '/assets/techs/Redux.svg',
-			colorHex: '#764ABC',
-			learned: true,
-		},
-		{
-			id: uuid(),
-			title: 'React Router',
-			logoUrl: '/assets/techs/React-Router.svg',
-			colorHex: '#D0021B',
-			learned: true,
-		},
-		{
-			id: uuid(),
-			title: 'Framer Motion',
-			logoUrl: '/assets/techs/Framer-Motion .svg',
-			colorHex: '#59529D',
 			learned: true,
 		},
 		{
@@ -221,7 +221,7 @@ export default {
 		},
 	],
 
-	dataBases: [
+	databases: [
 		{
 			id: uuid(),
 			title: 'MySQL',
@@ -270,7 +270,7 @@ export default {
 		{
 			id: uuid(),
 			title: 'RESTful API',
-			logoUrl: '/assets/techs/Restful-API.svg',
+			logoUrl: '/assets/techs/RESTful-API.svg',
 			colorHex: '#000000',
 			learned: true,
 		},

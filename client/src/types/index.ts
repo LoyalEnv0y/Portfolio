@@ -24,9 +24,9 @@ export type Tech = {
 };
 
 export type Techs = {
-	programmingLanguages: Tech[];
+	langs: Tech[];
 	libraries: Tech[];
 	frameworks: Tech[];
-	dataBases: Tech[];
+	databases: Tech[];
 	tools: Tech[];
 };
