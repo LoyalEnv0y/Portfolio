@@ -1,15 +1,6 @@
-import TechsData from '../data/Techs';
-import { Tech } from '../types';
 import TechCategory from './TechCategory';
 
 const Techs = () => {
-	const getKnownTech = (techs: Tech[]) => {
-		return techs.filter((tech) => tech.learned === true);
-	};
-
-	// const getUnknownTech = (techs: Tech[]) => {
-	// 	return techs.filter((tech) => tech.learned !== true);
-	// };
 
 	return (
 		<div className="flex w-full flex-col items-center gap-y-10 rounded-3xl bg-primary p-4">

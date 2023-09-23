@@ -7,11 +7,11 @@ type TechCategoryProps = {
 	title: string;
 	category: 'langs' | 'libraries' | 'frameworks' | 'databases' | 'tools';
 	known: boolean;
-	className?: string;
+	className: string;
 };
 
 const TechCategory = ({ title, category, known, className }: TechCategoryProps) => {
-	const classes = twMerge(classNames('w-full overflow-x-scroll', className));
+	const classes = twMerge(classNames('w-full overflow-auto', className));
 
 	const filterTechs = (techs: Tech[]) => {
 		return techs.filter((tech) => tech.learned === known);
