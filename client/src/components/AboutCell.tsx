@@ -112,7 +112,7 @@ const AboutCell = ({ cell, direction }: AboutCellProps) => {
 					))}
 				</div>
 			</div>
-
+			
 			<div className="mt-10 flex items-center justify-center">
 				{cell.imageLinks && (
 					<div
