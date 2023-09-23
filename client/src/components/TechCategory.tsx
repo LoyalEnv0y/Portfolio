@@ -7,7 +7,7 @@ type TechCategoryProps = {
 	title: string;
 	category: 'langs' | 'libraries' | 'frameworks' | 'databases' | 'tools';
 	known: boolean;
-	className: string;
+	className?: string;
 };
 
 const TechCategory = ({ title, category, known, className }: TechCategoryProps) => {
