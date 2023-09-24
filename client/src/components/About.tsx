@@ -76,7 +76,7 @@ const About = () => {
 	};
 
 	return (
-		<div className="bg-primary flex w-full flex-col items-center justify-between rounded-3xl p-4">
+		<div className="about-card flex w-full flex-col items-center justify-between rounded-3xl p-4">
 			<div className="flex w-full justify-center gap-x-1">
 				{contents.map((cell) => getNavigationSet(cell))}
 			</div>

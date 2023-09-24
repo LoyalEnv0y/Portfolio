@@ -7,10 +7,10 @@ import Techs from './components/Techs';
 
 const App = () => {
 	return (
-		<div className="overflow-x-hidden">
+		<div className="overflow-x-hidden  bg-black">
 			<Header />
 
-			<main className="my-10 flex min-h-screen w-screen flex-col items-center gap-y-5 px-5 font-rubik">
+			<main className="my-10 flex min-h-screen w-screen flex-col items-center gap-y-5 px-5 font-rubik text-white">
 				<SectionContainer>
 					<SectionTitle text="HAKKIMDA" />
 

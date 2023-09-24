@@ -1,5 +1,4 @@
 import TechsData from '../data/Techs';
-import { Tech } from '../types';
 
 type TechCategoryProps = {
 	title: string;
@@ -8,27 +7,20 @@ type TechCategoryProps = {
 };
 
 const TechCategory = ({ title, category, known }: TechCategoryProps) => {
-	const filterTechs = (techs: Tech[]) => {
-		return techs.filter((tech) => tech.learned === known);
-	};
+	const techs = TechsData[category].filter((tech) => tech.learned === known);
 
 	return (
-		<div className="w-full">
-			<h4 className="mb-2 text-sm font-semibold">{title}</h4>
-			<div className={'overflow-auto'}>
-				<div className="mb-2 flex gap-x-5">
-					{filterTechs(TechsData[category]).map((item) => (
+		<div className="tech-card-outer flex h-60 w-full items-center justify-center rounded-3xl shadow-[-3px_3px_4px_0px_rgba(241,154,255,0.25)]">
+			<div className="tech-card-inner flex h-[calc(100%-4px)] w-[calc(100%-4px)] flex-col items-center gap-y-3  rounded-3xl p-3">
+				<h4 className="text-sm">{title}</h4>
+
+				<div className="flex w-full flex-wrap gap-2 overflow-y-auto">
+					{techs.map((tech) => (
 						<div
-							key={item.id}
-							className="flex h-28 w-20 flex-none flex-col items-center justify-evenly rounded-xl bg-neutral"
+							className="flex h-20 w-14 items-center justify-center rounded-lg border-[3px] bg-white"
+							style={{ borderColor: tech.colorHex }}
 						>
-							<img className="h-14 w-14" src={item.logoUrl} />
-							<p
-								className="text-center text-sm"
-								style={{ color: item.colorHex }}
-							>
-								{item.title}
-							</p>
+							<img src={tech.logoUrl} />
 						</div>
 					))}
 				</div>
