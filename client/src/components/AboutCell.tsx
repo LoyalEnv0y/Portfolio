@@ -57,7 +57,7 @@ const AboutCell = ({ cell, direction }: AboutCellProps) => {
 								damping: 12,
 							},
 						}}
-						className="bg-neutral flex h-16 w-16 items-center justify-center rounded-xl"
+						className="bg-white flex h-16 w-16 items-center justify-center rounded-xl"
 						key={uuid()}
 					>
 						<img

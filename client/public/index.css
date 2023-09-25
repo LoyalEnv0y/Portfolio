@@ -7,6 +7,10 @@
 }
 
 ::-webkit-scrollbar {
+	display: none;
+}
+
+/* ::-webkit-scrollbar {
 	width: 6px;
 	height: 6px;
 }
@@ -23,7 +27,7 @@
 
 ::-webkit-scrollbar-thumb:hover {
 	background: #ee31ff;
-}
+} */
 
 .section-title {
 	background: linear-gradient(
@@ -50,8 +54,6 @@
 }
 
 .tech-card-outer {
-	/* width: 154px;
-	height: 204px; */
 	background: linear-gradient(
 		144deg,
 		rgba(255, 255, 255, 0.5) 0%,
@@ -60,8 +62,6 @@
 }
 
 .tech-card-inner {
-	/* width: 150px;
-	height: 200px; */
 	background: linear-gradient(144deg, #38373a 0%, #201042 100%);
 }
 
