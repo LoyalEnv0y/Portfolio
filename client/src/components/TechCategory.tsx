@@ -37,7 +37,10 @@ const TechCategory = ({ title, category, known }: TechCategoryProps) => {
 								</div>
 
 								<div className="absolute top-[200%] flex h-full w-full items-center justify-center rounded-xl transition group-hover:-translate-y-[200%]">
-									<p className="text-center text-xs text-black">
+									<p
+										className="text-center text-xs"
+										style={{ color: tech.colorHex }}
+									>
 										{tech.title}
 									</p>
 								</div>
