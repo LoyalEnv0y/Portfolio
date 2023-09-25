@@ -43,7 +43,7 @@ const AboutCell = ({ cell, direction }: AboutCellProps) => {
 		if (!cell.svgLinks) return;
 
 		return (
-			<div className="flex max-h-full max-w-full flex-wrap justify-center gap-5">
+			<div className="max-h-full max-w-full grid grid-cols-3 gap-x-10 gap-y-5">
 				{cell.svgLinks.map((svg, i) => (
 					<motion.div
 						initial={{ x: direction > 0 ? -1000 : 1000, opacity: 0 }}
