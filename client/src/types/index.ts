@@ -30,3 +30,13 @@ export type Techs = {
 	databases: Tech[];
 	tools: Tech[];
 };
+
+export type Project = {
+	id: string;
+	title: string;
+	description: string[];
+	websiteURL?: string;
+	repositoryURL?: string;
+	videoURL?: string;
+	imageURLs?: string[];
+};
