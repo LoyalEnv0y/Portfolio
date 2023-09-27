@@ -24,7 +24,7 @@ const TechCategory = ({ title, category, known }: TechCategoryProps) => {
 			<div className="tech-card-inner flex h-[calc(100%-4px)] w-[calc(100%-4px)] flex-col items-center gap-y-3  rounded-3xl px-2 py-4">
 				<h4 className="text-sm">{title}</h4>
 
-				<div className="grid w-full grid-cols-2 place-items-center gap-2 overflow-y-auto">
+				<div className="grid w-full grid-cols-2 place-items-center gap-2 overflow-y-auto ">
 					{techs.map((tech) => (
 						<div
 							className="group flex h-20 w-16 items-center justify-center overflow-hidden rounded-lg border-[3px] bg-white p-1"

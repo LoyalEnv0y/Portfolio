@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+import tailwindScrollbar from "tailwind-scrollbar";
+const test = tailwindScrollbar({ nocompatible: true });
+
 export default {
   content: [
     "./index.html",
@@ -23,6 +26,10 @@ export default {
         vibes: ['"Great Vibes"', 'cursive'],
         sacramento: ['Sacramento', 'cursive'],
         rubik: ['Rubik', 'cursive']
+      },
+
+      boxShadow: {
+        'lb': '-4px 4px 6px 0px rgba(0, 0, 0, 0.3)'
       },
 
       keyframes: {
@@ -72,5 +79,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    test
+  ],
 };
