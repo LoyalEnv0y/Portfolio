@@ -1,43 +1,18 @@
-import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import projectsData from '../data/Projects';
+import ImageCarousel from './imageCarousel';
 
 const Projects = () => {
+	const project = projectsData[7];
+
 	return (
-		<div className="projects-card flex w-full  flex-col items-center gap-y-10 rounded-3xl border-2 border-[#00C2FF] px-3 py-5 shadow-lb shadow-[#9affff40]">
-			<h3 className="text-xl font-medium tracking-wider">ParkPin</h3>
+		<div className="projects-card flex w-full flex-col items-center gap-y-10 rounded-3xl border-2 border-[#00C2FF] px-3 py-5 shadow-lb shadow-[#9affff40]">
+			<h3 className="text-xl font-medium tracking-wider">{project.title}</h3>
 
 			<section className="h-96 w-full rounded-xl bg-white p-4 text-black shadow-lb">
-				<div className="h-full w-full overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#009DCE] scrollbar-thumb-rounded">
-					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Accusantium excepturi, quaerat earum dicta sit nostrum ipsam
-						enim fugiat in, asperiores ducimus libero saepe voluptatem
-						dolorem? Illum quisquam adipisci magnam laudantium.
-						Quibusdam doloribus, inventore unde eos culpa sequi beatae
-						voluptate hic delectus nihil, blanditiis iste ducimus
-						aspernatur labore in at dolores animi enim et. Deleniti
-						nulla debitis repellendus officia repellat aspernatur?
-					</p>
-					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Accusantium excepturi, quaerat earum dicta sit nostrum ipsam
-						enim fugiat in, asperiores ducimus libero saepe voluptatem
-						dolorem? Illum quisquam adipisci magnam laudantium.
-						Quibusdam doloribus, inventore unde eos culpa sequi beatae
-						voluptate hic delectus nihil, blanditiis iste ducimus
-						aspernatur labore in at dolores animi enim et. Deleniti
-						nulla debitis repellendus officia repellat aspernatur?
-					</p>
-					<p>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-						Accusantium excepturi, quaerat earum dicta sit nostrum ipsam
-						enim fugiat in, asperiores ducimus libero saepe voluptatem
-						dolorem? Illum quisquam adipisci magnam laudantium.
-						Quibusdam doloribus, inventore unde eos culpa sequi beatae
-						voluptate hic delectus nihil, blanditiis iste ducimus
-						aspernatur labore in at dolores animi enim et. Deleniti
-						nulla debitis repellendus officia repellat aspernatur?
-					</p>
+				<div className="flex h-full w-full flex-col gap-y-4 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#009DCE] scrollbar-thumb-rounded">
+					{project.description.map((paragraph, i) => (
+						<p key={i}>{paragraph}</p>
+					))}
 				</div>
 			</section>
 
@@ -63,29 +38,9 @@ const Projects = () => {
 			<section className="flex w-full flex-col items-center gap-2">
 				<h3 className="text-lg font-medium tracking-wider">Görüntüler</h3>
 
-				<div className="relative w-full h-36 flex items-center justify-center">
-					<img
-						className="absolute h-5/6 z-30 border-2 border-slate-500"
-						src="images/projects/ParkPin-1.png"
-					/>
-					<img
-						className="absolute h-4/6 left-0 z-20 border-2 border-slate-500"
-						src="images/projects/ParkPin-2.png"
-					/>
-					<img
-						className="absolute h-4/6 right-0 z-10 border-2 border-slate-500"
-						src="images/projects/ParkPin-3.png"
-					/>
-				</div>
-
-				<div className="flex w-1/2 justify-between">
-					<button>
-						<KeyboardArrowLeftIcon />
-					</button>
-					<button>
-						<KeyboardArrowRightIcon />
-					</button>
-				</div>
+				{project.imageURLs && (
+					<ImageCarousel imageURLs={project.imageURLs} />
+				)}
 			</section>
 		</div>
 	);

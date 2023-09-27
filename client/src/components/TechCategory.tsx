@@ -27,6 +27,7 @@ const TechCategory = ({ title, category, known }: TechCategoryProps) => {
 				<div className="grid w-full grid-cols-2 place-items-center gap-2 overflow-y-auto ">
 					{techs.map((tech) => (
 						<div
+							key={tech.id}
 							className="group flex h-20 w-16 items-center justify-center overflow-hidden rounded-lg border-[3px] bg-white p-1"
 							style={{ borderColor: tech.colorHex }}
 							onClick={() => toggleTech(tech.id)}

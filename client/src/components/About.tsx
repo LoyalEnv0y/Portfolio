@@ -5,8 +5,6 @@ import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
 
-// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
