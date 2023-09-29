@@ -35,9 +35,9 @@ const ProjectCell = ({ project, direction }: ProjectProps) => {
 
 			<motion.section
 				variants={item}
-				className="h-96 w-full rounded-xl bg-white p-4 text-black shadow-lb"
+				className="w-full rounded-xl bg-white p-4 text-black shadow-lb"
 			>
-				<div className="flex h-full w-full flex-col gap-y-4 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#009DCE] scrollbar-thumb-rounded">
+				<div className="flex max-h-96 h-full w-full flex-col gap-y-4 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#009DCE] scrollbar-thumb-rounded">
 					{project.description.map((paragraph, i) => (
 						<p key={i}>{paragraph}</p>
 					))}

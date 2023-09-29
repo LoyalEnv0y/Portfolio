@@ -32,41 +32,44 @@ const variants = {
 };
 
 const About = () => {
+	const [isAnimating, setIsAnimating] = useState(false);
 	const [[page, direction], setPage] = useState([0, 0]);
 
-	const goPrev = () => {
-		if (page < 1) return;
-		setPage([page - 1, -1]);
+	const move = (newDirection: number) => {
+		if (isAnimating) return;
+		if (page <= 0 && newDirection < 0) return;
+		if (page >= contents.length - 1 && newDirection > 0) return;
+
+		setIsAnimating(true);
+		setPage([page + newDirection, newDirection]);
 	};
 
-	const goNext = () => {
-		if (page >= contents.length - 1) return;
-		setPage([page + 1, 1]);
-	};
-
-	const getNavigationSet = (cell: AboutCellContent) => {
+	const getNavigationSet = (content: AboutCellContent) => {
 		const buttonClasses = twMerge(
 			classNames('h-7 w-7 rounded-full bg-white', {
-				'bg-secondary': cell.index <= page,
+				'bg-secondary': content.index <= page,
 			})
 		);
 
 		const divClasses = twMerge(
 			classNames('h-0 w-7 rounded-full border-2 border-secondary', {
-				'border-dashed border-white': cell.index >= page,
+				'border-dashed border-white': content.index >= page,
 			})
 		);
 
 		return (
-			<div className="flex items-center gap-x-1" key={cell.id}>
+			<div className="flex items-center gap-x-1" key={content.id}>
 				<button
 					className={buttonClasses}
-					onClick={() =>
-						setPage([cell.index, cell.index < page ? -1 : 1])
-					}
+					onClick={() => {
+						if (isAnimating) return;
+						setIsAnimating(true);
+						setPage([content.index, content.index < page ? -1 : 1]);
+					}}
+					disabled={isAnimating}
 				/>
 
-				{cell.index !== contents.length - 1 && (
+				{content.index !== contents.length - 1 && (
 					<div className={divClasses}></div>
 				)}
 			</div>
@@ -74,7 +77,7 @@ const About = () => {
 	};
 
 	return (
-		<div className="about-card flex w-full flex-col items-center justify-between rounded-3xl p-4">
+		<div className="about-card flex w-full flex-col items-center justify-between rounded-3xl border-2 border-[#ff59a9] p-4 shadow-lb shadow-[#ff7ddb40]">
 			<div className="flex w-full justify-center gap-x-1">
 				{contents.map((cell) => getNavigationSet(cell))}
 			</div>
@@ -91,6 +94,7 @@ const About = () => {
 						transition={{
 							duration: 0.4,
 							type: 'spring',
+							onComplete: () => setIsAnimating(false),
 						}}
 					>
 						<AboutCell cell={contents[page]} direction={direction} />
@@ -103,12 +107,13 @@ const About = () => {
 					<AnimatePresence>
 						{page !== 0 && (
 							<motion.button
-								onClick={goPrev}
+								onClick={() => move(-1)}
 								whileHover={{ scale: 1.5 }}
 								whileTap={{ scale: 1.2, x: -4 }}
 								exit={{ scale: 1, x: 0 }}
 								transition={{ duration: 0.12 }}
 								key={'prevButton'}
+								disabled={isAnimating}
 							>
 								<KeyboardArrowLeftIcon />
 							</motion.button>
@@ -120,12 +125,13 @@ const About = () => {
 					<AnimatePresence>
 						{page !== contents.length - 1 && (
 							<motion.button
-								onClick={goNext}
+								onClick={() => move(1)}
 								whileHover={{ scale: 1.5 }}
 								whileTap={{ scale: 1.2, x: 4 }}
 								exit={{ scale: 1, x: 0 }}
 								transition={{ duration: 0.12 }}
 								key={'nextButton'}
+								disabled={isAnimating}
 							>
 								<KeyboardArrowRightIcon />
 							</motion.button>

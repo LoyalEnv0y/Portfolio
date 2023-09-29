@@ -47,17 +47,18 @@
 .about-card {
 	background: linear-gradient(
 		162deg,
-		rgba(255, 121, 187, 0.15) 0%,
-		rgba(253, 104, 177, 0.99) 99.99%,
-		#ff67b0 100%
+		rgba(32, 22, 27, 0.6) 0%,
+		rgba(138, 54, 94, 0.79) 50%,
+		#ff59a9 100%
 	);
 }
 
 .tech-card-outer {
 	background: linear-gradient(
-		144deg,
-		rgba(255, 255, 255, 0.5) 0%,
-		rgba(173, 0, 255, 0.7) 100%
+		162deg,
+		rgba(67, 39, 53, 0.6) 0%,
+		rgba(159, 63, 109, 0.8) 50%,
+		#ff59a9 100%
 	);
 }
 
