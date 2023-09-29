@@ -13,20 +13,20 @@
 /* ::-webkit-scrollbar {
 	width: 6px;
 	height: 6px;
+	display: none;
 }
 
 ::-webkit-scrollbar-track {
-	background: white;
 	border-radius: 100vh;
+	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #f367ff;
 	border-radius: 100vh;
-}
+} */
 
-::-webkit-scrollbar-thumb:hover {
-	background: #ee31ff;
+/* .scrollbar::-webkit-scrollbar {
+	display: block;
 } */
 
 .section-title {
@@ -63,6 +63,15 @@
 
 .tech-card-inner {
 	background: linear-gradient(144deg, #38373a 0%, #201042 100%);
+}
+
+.projects-card {
+	background: linear-gradient(
+		177deg,
+		rgba(0, 109, 143, 0.6) 0%,
+		rgba(0, 151, 199, 0.8) 50%,
+		#00c2ff 100%
+	);
 }
 
 @media (min-width: 1921px) {
