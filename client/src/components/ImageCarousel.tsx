@@ -64,7 +64,7 @@ const ImageCarousel = ({ imageURLs, className }: ImageCarouselProps) => {
 	);
 
 	const getImageClasses = () => {
-		return twMerge(classNames('h-full border shadow-lb'));
+		return twMerge(classNames('h-full shadow-lb'));
 	};
 
 	return (
