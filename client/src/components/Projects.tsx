@@ -1,5 +1,5 @@
 import projectsData from '../data/Projects';
-import ImageCarousel from './imageCarousel';
+import ImageCarousel from './ImageCarousel';
 
 const Projects = () => {
 	const project = projectsData[7];

@@ -4,64 +4,109 @@ import { twMerge } from 'tailwind-merge';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { AnimatePresence, motion } from 'framer-motion';
+import Modal from './Modal';
 
 type ImageCarouselProps = {
 	imageURLs: string[];
 	className?: string;
 };
 
+const variants = {
+	enter: (direction: number) => {
+		return {
+			x: direction > 0 ? 100 : -100,
+			scale: 0.79,
+			opacity: 0,
+		};
+	},
+
+	center: {
+		x: 0,
+		scale: 1,
+		opacity: 1,
+	},
+
+	exit: (direction: number) => {
+		return {
+			x: direction > 0 ? -100 : 100,
+			scale: 0.79,
+			opacity: 0,
+		};
+	},
+};
+
 const ImageCarousel = ({ imageURLs, className }: ImageCarouselProps) => {
-	const [[[prev, page, next], direction], setPage] = useState([
-		[false, 0, imageURLs.length > 0],
-		0,
-	]);
+	const [isAnimating, setIsAnimating] = useState(false);
+	const [[page, direction], setPage] = useState([0, 0]);
+	const move = (newDirection: number) => {
+		if (isAnimating) return;
+		if (page <= 0 && newDirection < 0) return;
+		if (page >= imageURLs.length - 1 && newDirection > 0) return;
 
-	const move = (direction: number) => {
-		if (page <= 0 && direction < 0) return;
-		if (page >= imageURLs.length - 1 && direction > 0) return;
-
-		const updatedPage = page + direction;
-		setPage([
-			[updatedPage > 0, updatedPage, updatedPage !== imageURLs.length - 1],
-			direction,
-		]);
+		setIsAnimating(true);
+		setPage([page + newDirection, newDirection]);
 	};
 
-	const classes = twMerge(
-		classNames(
-			'relative flex h-36 w-full items-center justify-center',
-			className
-		)
+	const [isModalOpen, setIsModalOpen] = useState<boolean>();
+	const modal = (
+		<Modal
+			targetClassName="project-image-modal"
+			handleClose={() => setIsModalOpen(false)}
+		>
+			<div className="flex h-5/6 w-5/6 flex-col items-center justify-center">
+				<img src={imageURLs[page]} />
+			</div>
+		</Modal>
 	);
 
-	return (
-		<div className="flex w-full flex-col items-center">
-			<div className={classes}>
-				<img
-					className="absolute z-30 h-5/6 border-2 border-slate-500 shadow-lb"
-					src={imageURLs[page]}
-				/>
+	const classes = twMerge(
+		classNames('flex h-36 w-full items-center justify-center', className)
+	);
 
-				{prev && (
-					<img
-						className="absolute left-0 z-20 h-4/6 border-2 border-slate-500 shadow-lb"
-						src={imageURLs[page - 1]}
+	const getImageClasses = () => {
+		return twMerge(classNames('h-full border shadow-lb'));
+	};
+
+	return (
+		<div className="flex w-full flex-col items-center gap-y-2">
+			{isModalOpen && modal}
+
+			<div className={classes}>
+				<AnimatePresence mode="wait" custom={direction} initial={false}>
+					<motion.img
+						variants={variants}
+						custom={direction}
+						initial="enter"
+						animate="center"
+						exit="exit"
+						transition={{
+							duration: 0.2,
+							type: 'spring',
+							bounce: 0.4,
+							onComplete: () => setIsAnimating(false),
+						}}
+						key={imageURLs[page]}
+						src={imageURLs[page]}
+						className={getImageClasses()}
+						onClick={() => setIsModalOpen(true)}
 					/>
-				)}
-				{next && (
-					<img
-						className="absolute right-0 z-10 h-4/6 border-2 border-slate-500 shadow-lb"
-						src={imageURLs[page + 1]}
-					/>
-				)}
+				</AnimatePresence>
 			</div>
-			<div className="flex w-1/2 justify-between">
-				<button onClick={() => move(-1)}>
-					<KeyboardArrowLeftIcon />
-				</button>
-				<button onClick={() => move(1)}>
-					<KeyboardArrowRightIcon />
-				</button>
+			<div className="flex w-1/2">
+				<div className="w-1/2 flex justify-center">
+					{page !== 0 && (
+						<button onClick={() => move(-1)} disabled={isAnimating}>
+							<KeyboardArrowLeftIcon />
+						</button>
+					)}
+				</div>
+				<div className="w-1/2 flex justify-center">
+					{page !== imageURLs.length - 1 && (
+						<button onClick={() => move(1)} disabled={isAnimating}>
+							<KeyboardArrowRightIcon />
+						</button>
+					)}
+				</div>
 			</div>
 		</div>
 	);
