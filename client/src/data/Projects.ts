@@ -21,7 +21,7 @@ export default [
 
 	{
 		id: uuid(),
-		title: 'Ping Pong Score Keeper',
+		title: 'PingPong Score Keeper',
 		description: [
 			'Web tasarımı hakkında yazdığım ilk küçük projeydi. Bu proje bir ping pong oyunu içerisinde skoru takip etmeye yarıyor.',
 			'HTML, CSS, Bootstrap, JS bilgilerimi geliştirmemi, DOM yapısını nasıl manüpüle edebileceğimi öğrenmemi sağladı.',

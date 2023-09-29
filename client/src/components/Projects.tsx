@@ -1,47 +1,86 @@
+import { useState } from 'react';
 import projectsData from '../data/Projects';
-import ImageCarousel from './ImageCarousel';
+import ProjectCell from './Project';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { AnimatePresence, motion } from 'framer-motion';
 
+const variants = {
+	enter: (direction: number) => {
+		return {
+			x: direction > 0 ? 1000 : -1000,
+			opacity: 0,
+		};
+	},
+
+	center: {
+		x: 0,
+		opacity: 1,
+	},
+
+	exit: (direction: number) => {
+		return {
+			x: direction > 0 ? -1000 : 1000,
+			opacity: 0,
+		};
+	},
+};
 const Projects = () => {
-	const project = projectsData[7];
+	const [isAnimating, setIsAnimating] = useState(false);
+	const [[page, direction], setPage] = useState([0, 0]);
+	const move = (newDirection: number) => {
+		if (isAnimating) return;
+		if (page <= 0 && newDirection < 0) return;
+		if (page >= projectsData.length - 1 && newDirection > 0) return;
+
+		setIsAnimating(true);
+		setPage([page + newDirection, newDirection]);
+	};
+
+	const currProject = projectsData[page];
 
 	return (
-		<div className="projects-card flex w-full flex-col items-center gap-y-10 rounded-3xl border-2 border-[#00C2FF] px-3 py-5 shadow-lb shadow-[#9affff40]">
-			<h3 className="text-xl font-medium tracking-wider">{project.title}</h3>
+		<div className="projects-card rounded-3xl border-2 border-[#00C2FF] shadow-lb shadow-[#9affff40]">
+			<AnimatePresence mode="wait" custom={direction} initial={false}>
+				<motion.div
+					variants={variants}
+					custom={direction}
+					initial="enter"
+					animate="center"
+					exit="exit"
+					transition={{
+						duration: 0.3,
+						onComplete: () => setIsAnimating(false),
+					}}
+					key={currProject.id}
+					className="flex h-full w-full flex-col items-center gap-y-10 px-3 py-5"
+				>
+					{
+						<ProjectCell
+							project={currProject}
+							key={currProject.id}
+							direction={direction}
+						/>
+					}
+				</motion.div>
+			</AnimatePresence>
 
-			<section className="h-96 w-full rounded-xl bg-white p-4 text-black shadow-lb">
-				<div className="flex h-full w-full flex-col gap-y-4 overflow-y-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#009DCE] scrollbar-thumb-rounded">
-					{project.description.map((paragraph, i) => (
-						<p key={i}>{paragraph}</p>
-					))}
+			<div className="mx-auto my-5 flex w-11/12">
+				<div className="flex w-1/2 justify-start">
+					{page > 0 && (
+						<button onClick={() => move(-1)} disabled={isAnimating}>
+							<KeyboardArrowLeftIcon fontSize="large" />
+						</button>
+					)}
 				</div>
-			</section>
-
-			<section className="flex w-full flex-col items-center gap-5">
-				<h3 className="text-lg font-medium tracking-wider">İncele</h3>
-
-				<div className="flex w-full justify-between">
-					<button className="flex h-20 w-20 flex-col items-center justify-evenly rounded-2xl bg-white shadow-lb">
-						<img src="/assets/Web.svg" className="h-10 w-10" />
-						<p className="text-black">Website</p>
-					</button>
-					<button className="flex h-20 w-20 flex-col items-center justify-evenly rounded-2xl bg-white shadow-lb">
-						<img src="/assets/Codebase.svg" className="h-10 w-10" />
-						<p className="text-black">Codebase</p>
-					</button>
-					<button className="flex h-20 w-20 flex-col items-center justify-evenly rounded-2xl bg-white shadow-lb">
-						<img src="/assets/Video.svg" className="h-10 w-10" />
-						<p className="text-black">Video</p>
-					</button>
+				<div className="flex w-1/2 justify-end">
+					{page < projectsData.length - 1 && (
+						<button onClick={() => move(1)} disabled={isAnimating}>
+							<KeyboardArrowRightIcon fontSize="large" />
+						</button>
+					)}
 				</div>
-			</section>
-
-			<section className="flex w-full flex-col items-center gap-2">
-				<h3 className="text-lg font-medium tracking-wider">Görüntüler</h3>
-
-				{project.imageURLs && (
-					<ImageCarousel imageURLs={project.imageURLs} />
-				)}
-			</section>
+			</div>
 		</div>
 	);
 };

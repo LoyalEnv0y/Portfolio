@@ -92,15 +92,15 @@ const ImageCarousel = ({ imageURLs, className }: ImageCarouselProps) => {
 					/>
 				</AnimatePresence>
 			</div>
-			<div className="flex w-1/2">
-				<div className="w-1/2 flex justify-center">
+			<div className="flex w-3/4">
+				<div className="flex w-1/2 justify-center">
 					{page !== 0 && (
 						<button onClick={() => move(-1)} disabled={isAnimating}>
 							<KeyboardArrowLeftIcon />
 						</button>
 					)}
 				</div>
-				<div className="w-1/2 flex justify-center">
+				<div className="flex w-1/2 justify-center">
 					{page !== imageURLs.length - 1 && (
 						<button onClick={() => move(1)} disabled={isAnimating}>
 							<KeyboardArrowRightIcon />
