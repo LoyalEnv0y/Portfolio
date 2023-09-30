@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import CloseIcon from '@mui/icons-material/Close';
 import { AnimatePresence, motion } from 'framer-motion';
 import Modal from './Modal';
 
@@ -49,18 +48,16 @@ const ImageCarousel = ({ imageURLs, className }: ImageCarouselProps) => {
 	};
 
 	const [isModalOpen, setIsModalOpen] = useState<boolean>();
+	const closeModal = (event: React.MouseEvent) => {
+		if (event.target === event.currentTarget) {
+			setIsModalOpen(false);
+		}
+	};
+
 	const modal = (
-		<Modal
-			targetClassName="project-image-modal"
-			handleClose={() => setIsModalOpen(false)}
-		>
-			<div className='flex flex-col items-center gap-y-2'>
-				<button className='text-white self-end'>
-					<CloseIcon fontSize='large' />
-				</button>
-				<div className="flex h-full w-full flex-col items-center justify-center">
-					<img src={imageURLs[page]} />
-				</div>
+		<Modal targetClassName="project-image-modal" handleClose={closeModal}>
+			<div className="flex items-center">
+				<img src={imageURLs[page]} className="max-h-96" />
 			</div>
 		</Modal>
 	);

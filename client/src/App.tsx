@@ -11,7 +11,7 @@ const App = () => {
 		<div className="overflow-x-hidden bg-black scrollbar-none">
 			<Header />
 
-			<main className="flex min-h-screen w-screen flex-col items-center px-5 font-rubik text-white my-10 gap-y-10">
+			<main className="my-10 flex min-h-screen w-screen flex-col items-center gap-y-10 px-5 font-rubik text-white">
 				<Section>
 					<h2 className="section-title text-2xl font-extrabold uppercase tracking-widest sm:text-5xl">
 						Hakkımda
@@ -51,12 +51,19 @@ const App = () => {
 					</GradientCard>
 				</Section>
 
-				{/* <GradientCard
-					start="#8B8B8B"
-					end="#FFC700"
-					className="shadow-lb shadow-[#ffc70059]"
-				>
-				</GradientCard> */}
+				<Section>
+					<h2 className="section-title text-2xl font-extrabold uppercase tracking-widest sm:text-5xl">
+						Sertifikalar
+					</h2>
+
+					<GradientCard
+						start="#8B8B8B"
+						end="#FFC700"
+						className="shadow-lb shadow-[#ffc70059]"
+					>
+						
+					</GradientCard>
+				</Section>
 			</main>
 		</div>
 	);

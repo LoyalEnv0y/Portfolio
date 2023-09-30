@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 
 type ModalProps = {
 	targetClassName: string;
-	handleClose: () => void;
+	handleClose: (event: React.MouseEvent) => void;
 	children: ReactNode;
 };
 
