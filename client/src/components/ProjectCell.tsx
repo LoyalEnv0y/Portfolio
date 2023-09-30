@@ -56,10 +56,12 @@ const ProjectCell = ({ project, direction }: ProjectCellProps) => {
 						<p className="text-xs text-black">Website</p>
 					</button>
 
-					<button className="flex h-16 w-16 flex-col items-center justify-evenly rounded-2xl border-2 border-slate-300 bg-white shadow-lb">
-						<img src="/assets/Codebase.svg" className="h-5 w-5" />
-						<p className="text-xs text-black">Codebase</p>
-					</button>
+					<a href={project.repositoryURL} target="_blank">
+						<button className="flex h-16 w-16 flex-col items-center justify-evenly rounded-2xl border-2 border-slate-300 bg-white shadow-lb">
+							<img src="/assets/Codebase.svg" className="h-5 w-5" />
+							<p className="text-xs text-black">Codebase</p>
+						</button>
+					</a>
 
 					<button className="flex h-16 w-16 flex-col items-center justify-evenly rounded-2xl border-2 border-slate-300 bg-white shadow-lb">
 						<img src="/assets/Video.svg" className="h-5 w-5" />
