@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import projectsData from '../data/Projects';
-import ProjectCell from './Project';
+import ProjectCell from './ProjectCell';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -65,7 +65,7 @@ const Projects = () => {
 				</motion.div>
 			</AnimatePresence>
 
-			<div className="mx-auto my-5 flex w-11/12">
+			<div className="mx-auto mb-5 flex w-11/12">
 				<div className="flex w-1/2 justify-start">
 					{page > 0 && (
 						<button onClick={() => move(-1)} disabled={isAnimating}>

@@ -1,4 +1,3 @@
-import SectionTitle from './components/SectionTitle';
 import Header from './components/Header';
 import PictureBox from './components/PictureBox';
 import About from './components/About';
@@ -12,9 +11,11 @@ const App = () => {
 		<div className="overflow-x-hidden bg-black scrollbar-none">
 			<Header />
 
-			<main className="my-10 flex min-h-screen w-screen flex-col items-center gap-y-20 px-5 font-rubik text-white">
+			<main className="flex min-h-screen w-screen flex-col items-center px-5 font-rubik text-white my-10 gap-y-10">
 				<Section>
-					<SectionTitle text="HAKKIMDA" />
+					<h2 className="section-title text-2xl font-extrabold uppercase tracking-widest sm:text-5xl">
+						Hakkımda
+					</h2>
 
 					<PictureBox />
 
@@ -30,14 +31,16 @@ const App = () => {
 				</Section>
 
 				<Section>
-					<SectionTitle text="TEKNOLOJİLER" />
-
+					<h2 className="section-title text-2xl font-extrabold uppercase tracking-widest sm:text-5xl">
+						Teknolojiler
+					</h2>
 					<Techs />
 				</Section>
 
 				<Section>
-					<SectionTitle text="PROJELER" />
-
+					<h2 className="section-title text-2xl font-extrabold uppercase tracking-widest sm:text-5xl">
+						Projeler
+					</h2>
 					<GradientCard
 						start="#006e8f"
 						middle="#0098c7"
@@ -60,12 +63,3 @@ const App = () => {
 };
 
 export default App;
-
-// .projects-card {
-// 	background: linear-gradient(
-// 		177deg,
-// 		#006e8f 0%,
-// 		#0098c7 50%,
-// 		#00c2ff 100%
-// 	);
-// }

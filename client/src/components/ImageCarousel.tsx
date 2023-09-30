@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import CloseIcon from '@mui/icons-material/Close';
 import { AnimatePresence, motion } from 'framer-motion';
 import Modal from './Modal';
 
@@ -53,8 +54,13 @@ const ImageCarousel = ({ imageURLs, className }: ImageCarouselProps) => {
 			targetClassName="project-image-modal"
 			handleClose={() => setIsModalOpen(false)}
 		>
-			<div className="flex h-5/6 w-5/6 flex-col items-center justify-center">
-				<img src={imageURLs[page]} />
+			<div className='flex flex-col items-center gap-y-2'>
+				<button className='text-white self-end'>
+					<CloseIcon fontSize='large' />
+				</button>
+				<div className="flex h-full w-full flex-col items-center justify-center">
+					<img src={imageURLs[page]} />
+				</div>
 			</div>
 		</Modal>
 	);

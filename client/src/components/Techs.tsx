@@ -4,7 +4,7 @@ const Techs = () => {
 	return (
 		<>
 			<div className="flex w-full flex-col items-center gap-y-10">
-				<h3 className="mt-5 text-lg font-bold">Bildiklerim</h3>
+				<h3 className="text-lg font-bold">Bildiklerim</h3>
 				<div className="grid w-full grid-cols-2 gap-x-2 gap-y-3">
 					<TechCategory title="Diller" category="langs" known={true} />
 
@@ -27,7 +27,7 @@ const Techs = () => {
 			</div>
 
 			<div className="flex w-full flex-col items-center gap-y-10">
-				<h3 className="mt-5 text-lg font-bold">Öğreneceklerim</h3>
+				<h3 className="text-lg font-bold">Öğreneceklerim</h3>
 				<div className="grid w-full grid-cols-2 gap-x-2 gap-y-3">
 					<TechCategory title="Diller" category="langs" known={false} />
 					<TechCategory

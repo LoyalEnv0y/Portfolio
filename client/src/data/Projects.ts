@@ -121,7 +121,7 @@ export default [
 		id: uuid(),
 		title: 'ParkPin',
 		description: [
-			'Otopark otomasyon sistemi hakkında olan bu proje, en çok zaman harcadığım proje oldu. ParkPin’i bir okul projesi için ben ve ismi Ayberk olan bir arkaşımla ortaklaşa 2-2.5 ay civarında geliştirdik. Projenin backend kısmını ve sınırlı frontend kısımlarını ben geliştirirken Ayberk frontend’in neredeyse hepsini kendi başına geliştirdi. ',
+			'Otopark otomasyon sistemi hakkında olan bu proje, en çok zaman harcadığım proje oldu. ParkPin’i bir okul projesi için ben ve <a class="text-sky-500 font-bold" href="https://www.linkedin.com/in/ayberksch" target="_blank" >Ayberk</a> arkaşımla ortaklaşa 2-2.5 ay civarında geliştirdik. Projenin backend kısmını ve sınırlı frontend kısımlarını ben geliştirirken <a class="text-sky-500 font-bold" href="https://www.linkedin.com/in/ayberksch" target="_blank" >Ayberk</a> frontend’in neredeyse hepsini kendi başına geliştirdi. ',
 
 			"ParkPin'de kullanıcılar kendilerine hesap açabilir, otopark'da slot kiralayabilir, arabalarını kayıt edebilir, kullandıkları otoparklara yorum yazabilir, başkalarının yorumlarını oylayabilirler. Bunun yanı sıra kullanıcılar kendilerine ait olan bir otoparkı listeleyebilir, editleyebilir ve silebilirler.",
 
