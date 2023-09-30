@@ -7,6 +7,7 @@ const Techs = () => {
 				<h3 className="mt-5 text-lg font-bold">Bildiklerim</h3>
 				<div className="grid w-full grid-cols-2 gap-x-2 gap-y-3">
 					<TechCategory title="Diller" category="langs" known={true} />
+
 					<TechCategory
 						title="Kütüphaneler"
 						category="libraries"

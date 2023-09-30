@@ -77,7 +77,7 @@ const About = () => {
 	};
 
 	return (
-		<div className="about-card flex w-full flex-col items-center justify-between rounded-3xl border-2 border-[#ff59a9] p-4 shadow-lb shadow-[#ff7ddb40]">
+		<>
 			<div className="flex w-full justify-center gap-x-1">
 				{contents.map((cell) => getNavigationSet(cell))}
 			</div>
@@ -139,7 +139,7 @@ const About = () => {
 					</AnimatePresence>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

@@ -40,7 +40,7 @@ const Projects = () => {
 	const currProject = projectsData[page];
 
 	return (
-		<div className="projects-card rounded-3xl border-2 border-[#00C2FF] shadow-lb shadow-[#9affff40]">
+		<>
 			<AnimatePresence mode="wait" custom={direction} initial={false}>
 				<motion.div
 					variants={variants}
@@ -81,7 +81,7 @@ const Projects = () => {
 					)}
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
