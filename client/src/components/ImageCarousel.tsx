@@ -57,7 +57,7 @@ const ImageCarousel = ({ imageURLs, className }: ImageCarouselProps) => {
 	const modal = (
 		<Modal targetClassName="project-image-modal" handleClose={closeModal}>
 			<div className="flex items-center">
-				<img src={imageURLs[page]} className="max-h-96" />
+				<img src={imageURLs[page]} className="max-h-[35rem]" />
 			</div>
 		</Modal>
 	);
