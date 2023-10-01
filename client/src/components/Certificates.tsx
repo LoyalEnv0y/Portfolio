@@ -6,11 +6,15 @@ import { Certificate } from '../types';
 const Certificates = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [selectedCert, setSelectedCert] = useState<Certificate>();
-	const closeModal = () => setIsModalOpen(false);
+	const closeModal = (event: React.MouseEvent) => {
+		if (event.target === event.currentTarget) {
+			setIsModalOpen(false);
+		}
+	};
 
 	const modal = (
 		<Modal handleClose={closeModal} targetClassName="certificate-modal">
-			<div className="flex w-full flex-col items-center gap-y-5 rounded-md border bg-[#D0D0D0] p-3 py-7 sm:h-full sm:w-2/5">
+			<div className="flex w-full flex-col items-center gap-y-5 rounded-md px-2 py-5 backdrop-blur-lg sm:h-full sm:w-2/5">
 				<img
 					src={selectedCert?.imageURL}
 					className="rounded-md border shadow-lb"
@@ -21,7 +25,7 @@ const Certificates = () => {
 				</div>
 
 				<div className="flex w-full items-center rounded-md bg-white p-4 shadow-lb">
-					<img src="public/assets/Certificate.svg" className="w-10" />
+					<img src="public/assets/Certificate.svg" className="w-12" />
 					<p className="w-full text-center font-semibold uppercase">
 						{selectedCert?.id}
 					</p>
@@ -29,20 +33,20 @@ const Certificates = () => {
 
 				<div className="flex w-full gap-x-5">
 					<div className="flex w-full items-center gap-x-2 rounded-md bg-white p-4 shadow-lb">
-						<img src="public/assets/Institution.svg" className="w-10" />
+						<img src="public/assets/Institution.svg" className="w-12" />
 						<p className="font-semibold w-full text-center">{selectedCert?.institution}</p>
 					</div>
 					<div className="flex w-full items-center gap-x-2 rounded-md bg-white p-4 shadow-lb">
-						<img src="public/assets/Calendar2.svg" className="w-10" />
+						<img src="public/assets/Calendar2.svg" className="w-12" />
 						<p className="text-sm font-semibold w-full text-center">
 							{selectedCert?.givenAt.replaceAll(' ', '/')}
 						</p>
 					</div>
 					<div className="flex w-full items-center gap-x-2 rounded-md bg-white p-4 shadow-lb">
-						<img src="public/assets/Link.svg" className="w-10" />
-						<p className="text-center font-semibold w-full">
+						<img src="public/assets/Link.svg" className="w-12" />
+						<a href={selectedCert?.linkURL} target="_blank" className="text-center font-semibold w-full">
 							Go to Certificate
-						</p>
+						</a>
 					</div>
 				</div>
 			</div>
