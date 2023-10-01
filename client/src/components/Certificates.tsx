@@ -60,7 +60,7 @@ const Certificates = () => {
 					variants={item}
 					className="flex w-full items-center rounded-md bg-white p-4 shadow-lb"
 				>
-					<img src="public/assets/Certificate.svg" className="w-12" />
+					<img src="/assets/Certificate.svg" className="w-12" />
 					<p className="w-full text-center font-semibold uppercase">
 						{selectedCert?.id}
 					</p>
@@ -71,19 +71,19 @@ const Certificates = () => {
 					className="flex w-full gap-x-5"
 				>
 					<div className="flex w-full items-center gap-x-2 rounded-md bg-white p-4 shadow-lb">
-						<img src="public/assets/Institution.svg" className="w-12" />
+						<img src="/assets/Institution.svg" className="w-12" />
 						<p className="w-full text-center font-semibold">
 							{selectedCert?.institution}
 						</p>
 					</div>
 					<div className="flex w-full items-center gap-x-2 rounded-md bg-white p-4 shadow-lb">
-						<img src="public/assets/Calendar2.svg" className="w-12" />
+						<img src="/assets/Calendar2.svg" className="w-12" />
 						<p className="w-full text-center text-sm font-semibold">
 							{selectedCert?.givenAt.replaceAll(' ', '/')}
 						</p>
 					</div>
 					<div className="flex w-full items-center gap-x-2 rounded-md bg-white p-4 shadow-lb">
-						<img src="public/assets/Link.svg" className="w-12" />
+						<img src="/assets/Link.svg" className="w-12" />
 						<a
 							href={selectedCert?.linkURL}
 							target="_blank"
