@@ -31,7 +31,7 @@ export default [
 	{
 		id: 'CEEF42F221F2',
 		title: 'The Web Developer Bootcamp 2023',
-		institution: 'Udemy',
+		institution: 'HackerRank',
 		givenAt: '15 July 2023',
 		imageURL: 'images/certificates/JS-Intermediate.png',
 		linkURL: 'https://www.hackerrank.com/certificates/ceef42d221f2',
