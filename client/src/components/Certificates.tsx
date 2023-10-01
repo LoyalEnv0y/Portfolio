@@ -2,6 +2,34 @@ import { useState } from 'react';
 import certificatesData from '../data/Certificates';
 import Modal from './Modal';
 import { Certificate } from '../types';
+import { motion } from 'framer-motion';
+
+const container = {
+	enter: {
+		opacity: 0,
+		x: -1000,
+	},
+
+	end: {
+		opacity: 1,
+		x: 0,
+		transition: {
+			staggerChildren: 0.1,
+		},
+	},
+};
+
+const item = {
+	enter: {
+		opacity: 0,
+		x: -1000,
+	},
+
+	end: {
+		opacity: 1,
+		x: 0,
+	},
+};
 
 const Certificates = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,42 +42,58 @@ const Certificates = () => {
 
 	const modal = (
 		<Modal handleClose={closeModal} targetClassName="certificate-modal">
-			<div className="flex w-full flex-col items-center gap-y-5 rounded-md px-2 py-5 backdrop-blur-lg sm:h-full sm:w-2/5">
-				<img
+			<motion.div variants={container} initial="enter" animate="end" className="flex w-full flex-col items-center gap-y-5 rounded-md px-2 py-5 backdrop-blur-lg sm:h-full sm:w-2/5">
+				<motion.img
+					variants={item}
 					src={selectedCert?.imageURL}
 					className="rounded-md border shadow-lb"
 				/>
 
-				<div className="w-full rounded-md bg-white p-4 text-center text-xl font-bold shadow-lb">
+				<motion.div
+					variants={item}
+					className="w-full rounded-md bg-white p-4 text-center text-xl font-bold shadow-lb"
+				>
 					{selectedCert?.title}
-				</div>
+				</motion.div>
 
-				<div className="flex w-full items-center rounded-md bg-white p-4 shadow-lb">
+				<motion.div
+					variants={item}
+					className="flex w-full items-center rounded-md bg-white p-4 shadow-lb"
+				>
 					<img src="public/assets/Certificate.svg" className="w-12" />
 					<p className="w-full text-center font-semibold uppercase">
 						{selectedCert?.id}
 					</p>
-				</div>
+				</motion.div>
 
-				<div className="flex w-full gap-x-5">
+				<motion.div
+					variants={item}
+					className="flex w-full gap-x-5"
+				>
 					<div className="flex w-full items-center gap-x-2 rounded-md bg-white p-4 shadow-lb">
 						<img src="public/assets/Institution.svg" className="w-12" />
-						<p className="font-semibold w-full text-center">{selectedCert?.institution}</p>
+						<p className="w-full text-center font-semibold">
+							{selectedCert?.institution}
+						</p>
 					</div>
 					<div className="flex w-full items-center gap-x-2 rounded-md bg-white p-4 shadow-lb">
 						<img src="public/assets/Calendar2.svg" className="w-12" />
-						<p className="text-sm font-semibold w-full text-center">
+						<p className="w-full text-center text-sm font-semibold">
 							{selectedCert?.givenAt.replaceAll(' ', '/')}
 						</p>
 					</div>
 					<div className="flex w-full items-center gap-x-2 rounded-md bg-white p-4 shadow-lb">
 						<img src="public/assets/Link.svg" className="w-12" />
-						<a href={selectedCert?.linkURL} target="_blank" className="text-center font-semibold w-full">
+						<a
+							href={selectedCert?.linkURL}
+							target="_blank"
+							className="w-full text-center font-semibold"
+						>
 							Go to Certificate
 						</a>
 					</div>
-				</div>
-			</div>
+				</motion.div>
+			</motion.div>
 		</Modal>
 	);
 
