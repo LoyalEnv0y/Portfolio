@@ -67,6 +67,17 @@ export default {
           '85%': { opacity: '1' },
           '100%': { opacity: '0' }
         },
+
+        smallPing: {
+          '50%': {
+            opacity: '0.3',
+          },
+
+          '100%': {
+            transform: 'scale(1.04)',
+            opacity: '0',
+          },
+        },
       },
 
       animation: {
@@ -76,6 +87,7 @@ export default {
         fade2: 'fade2 15s linear infinite',
         fade3: 'fade3 15s linear infinite',
         fade4: 'fade4 15s linear infinite',
+        smallPing: 'smallPing 4s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
     },
   },

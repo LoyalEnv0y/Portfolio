@@ -5,6 +5,7 @@ import Section from './components/Section';
 import Techs from './components/Techs';
 import Projects from './components/Projects';
 import GradientCard from './components/GradientCard';
+import Certificates from './components/Certificates';
 
 const App = () => {
 	return (
@@ -61,7 +62,7 @@ const App = () => {
 						end="#FFC700"
 						className="shadow-lb shadow-[#ffc70059]"
 					>
-						
+						<Certificates />
 					</GradientCard>
 				</Section>
 			</main>

@@ -40,3 +40,12 @@ export type Project = {
 	videoURL?: string;
 	imageURLs?: string[];
 };
+
+export type Certificate = {
+	id: string;
+	title: string;
+	institution: string;
+	givenAt: string;
+	imageURL: string;
+	linkURL: string;
+};
